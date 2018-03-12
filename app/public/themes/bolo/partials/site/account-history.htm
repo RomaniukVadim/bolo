@@ -1,0 +1,22 @@
+<div class="body">
+    {% for order in orders %}
+    <div class="row desktop">
+        <div class="col col1">{{order.created_at|date('d/m/Y H:i:s')}}</div>
+        <div class="col col3">{{order.id}}</div>
+        <div class="col col5">{{order.message}}</div>
+        <div class="col col4">{{order.gateway_name|_|default('bolo.admin'|_)}}</div>
+        <div class="col col2">{{order.type|_|default('deposit'|_)}}</div>
+        <div class="col col6 {{order.amount>=0?'positive':'negative'}}">{{order.amount|number_format(2)}}</div>
+        <div class="col col7">{{order.balance|number_format(2)}}</div>
+    </div>
+    <div class="row mobile">
+        <div class="col col1">{{order.type|_|default('deposit'|_)}}</div>
+        <div class="col col2 {{order.amount>=0?'positive':'negative'}}">{{order.amount|number_format(2)}}</div>
+        <div class="col col3"><span class="title mobile">{{'Date/Time'|_}}:</span>{{order.created_at|date('d/m/Y H:i:s')}}</div>
+        <div class="col col4"><span class="title mobile">{{'Balance'|_}}:</span>{{order.balance|number_format(2)}}</div>
+        <div class="col col5"><span class="title mobile">{{'Description'|_}}:</span> {{order.message}}</div>
+        <div class="col col7"><span class="title mobile">{{'ID'|_}}:</span> {{order.id}}</div>
+        <div class="col col8"><span class="title mobile">{{'Payment Method'|_}}:</span> {{order.gateway_name|_|default('bolo.admin'|_)}}</div>
+    </div>
+    {% endfor %}
+</div>

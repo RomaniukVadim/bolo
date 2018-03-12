@@ -1,0 +1,36 @@
+# ===================================
+#  Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: id
+        invisible: true
+
+    name:
+        label: Name
+        searchable: yes
+        type: partial
+        path: ~/plugins/bolo/geoloc/models/georegion/_name_column.htm
+
+    type:
+        label: Type
+        select: "IF(geo_regions.level = 0, 'Continent', IF(geo_regions.level = 1, 'Country', IF(geo_regions.level = 2, 'Subdivision', '')))"
+
+    level:
+        label: Level
+        invisible: true
+
+    active:
+        label: Active
+        type: partial
+        clickable: false
+        cssClass: nolink
+        path: ~/plugins/bolo/geoloc/models/georegion/_active_column.htm
+
+    test:
+        label: Test
+        type: partial
+        clickable: false
+        cssClass: nolink
+        path: ~/plugins/bolo/geoloc/models/georegion/_test_column.htm

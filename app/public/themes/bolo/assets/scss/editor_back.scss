@@ -1,0 +1,48 @@
+$editor_back: 1;
+
+@import "mixins";
+@import "editor";
+
+a.btn-cta {
+    font-size: 24px;
+    padding: 15px 50px;
+    text-align: center;
+    color: $red;
+    background-color: rgba($goldenyellow, .95);
+    border: 0px solid $red;
+    border-bottom: 5px solid $red;
+    display: inline-block;
+    margin-top: 10px;
+    @include border-radius(5px);
+}
+
+a.btn-cta-small {
+    font-size: 16px;
+    padding: 10px 30px;
+    text-align: center;
+    color: $red;
+    background-color: rgba($goldenyellow, .95);
+    border: 0px solid $red;
+    border-bottom: 5px solid $red;
+    display: inline-block;
+    margin-top: 10px;
+    @include border-radius(5px);
+}
+
+.public-only{
+    opacity: 0.5;
+}
+
+.gallery{
+    background-color: #ccf;
+    padding: 10px;
+    border: 2px dashed grey;
+    text-align: center;
+
+    img{
+        margin: 5px !important;
+        display: inline-block !important;
+        width: 20% !important;
+        height: auto !important;
+    }
+}

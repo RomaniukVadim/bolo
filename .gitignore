@@ -1,0 +1,10 @@
+/.vagrant
+/app/err.log
+/app/acc.log
+/.idea
+*.iml
+_ide_helper*.*
+.phpstorm.meta.php
+rev-manifest.json
+/app/deploy/clone
+/app/deploy/servers.txt

@@ -1,0 +1,84 @@
+name: 'Main Menu Logged In'
+items:
+    -
+        title: About
+        nesting: '0'
+        type: static-page
+        url: ''
+        code: ''
+        reference: home
+        cmsPage: ''
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            suffix: '#about'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Services
+        nesting: '0'
+        type: static-page
+        url: ''
+        code: ''
+        reference: home
+        cmsPage: ''
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            suffix: '#services'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Partners
+        nesting: '0'
+        type: static-page
+        url: ''
+        code: ''
+        reference: home
+        cmsPage: ''
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            suffix: '#partners'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Contact
+        nesting: '0'
+        type: static-page
+        url: ''
+        code: ''
+        reference: home
+        cmsPage: ''
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            suffix: '#contact'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Payments
+        nesting: '0'
+        type: static-page
+        url: ''
+        code: ''
+        reference: payments
+        cmsPage: ''
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            suffix: ''
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Promotions
+        nesting: '0'
+        type: static-page
+        code: ''
+        reference: promotions
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            suffix: ''
+            cssClass: ''
+            isExternal: '0'

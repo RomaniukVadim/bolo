@@ -1,0 +1,45 @@
+description = "Payments RPNPay layout"
+
+[geoSettings]
+
+[boloSession]
+redirect = "payments-info"
+security="user"
+
+[localePicker]
+forceUrl = 1
+
+[staticPage]
+
+[boloPayment boloPaymentRpnPay]
+return_url = 'payments-ok'
+==
+{variable name="footerLinks" label="Footer Links" tab="Extra" type="text"}default-footer-links{/variable}
+
+{variable name="tblLogo" label="Logo" tab="Table Data" type="mediafinder" mode="image"}{/variable}
+{variable name="tblType" label="Type" tab="Table Data" type="text"}{/variable}
+{variable name="tblFee" label="Fee" tab="Table Data" type="text"}{/variable}
+{variable name="tblTime" label="Time" tab="Table Data" type="text"}{/variable}
+{variable name="tblMin" label="Min" tab="Table Data" type="text"}{/variable}
+{variable name="tblMax" label="Max" tab="Table Data" type="text"}{/variable}
+{variable name="tblCurrency" label="Currency" tab="Table Data" type="text"}{/variable}
+{variable name="tblDescription" label="Description" tab="Table Data" type="text"}{/variable}
+
+{variable name="gatewayMerchant" label="Merchant" tab="Payment Settings" type="dropdown" options="Wechat:Wechat|UnionPayMobile:UnionPayMobile|UnionPayDesktop:UnionPayDesktop"}{/variable}
+
+{% put bodyClass %} payments{% endput %}
+{% partial 'site/header' %}
+<section id="content" class="form-block block">
+    <article class="container">
+	    <div class="header">
+	        {% page %}
+	    </div>
+	    <div class="payments-form payments-rpnpay">
+	        {% component 'boloPaymentRpnPay' gateway='RPNPay'~gatewayMerchant gatewayOptMerchant=gatewayMerchant gatewayOptMinAmount=tblMin gatewayOptMaxAmount=tblMax  %}
+	    </div>
+	    <div class="footer">
+	        {% placeholder paymentsFooter title="Payments Footer" type="html" %}
+	    </div>
+	</article>
+</section>
+{% partial 'site/footer' %}

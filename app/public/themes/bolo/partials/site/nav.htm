@@ -1,0 +1,67 @@
+[staticMenu mainMenu]
+==
+{% if user %}
+    {% set menuItems = mainMenu.resetMenu('main-menu-logged-in') %}
+{% endif %}
+
+{% if not menuItems %}
+    {% set menuItems = mainMenu.resetMenu('main-menu') %}
+{% endif %}
+
+<header class="layout-{{ this.layout.id }}">
+    <div class="container">
+        <a class="logo {{ activeLocale }}" href="{{ 'home'|staticPage }}"></a>
+
+        {% import _self as nav %}
+
+        {% macro render_menu(items) %}
+            {% import _self as nav %}
+
+            {% for item in items %}
+                {% if item.items %}
+                    <li role="presentation" class="dropdown {{ item.isActive ? 'active' }} {{ item.isChildActive ? 'child-active' }}">
+                        <a href="{{ item.url }}{{ item.viewBag.suffix }}" class="dropdown-toggle" data-toggle="dropdown">
+                            {{ item.code ? ('nav.'~item.code)|_ : item.title|_ }} <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            {{ nav.render_menu(item.items) }}
+                        </ul>
+                    </li>
+                {% else %}
+                    <li role="presentation" class="{{ item.isActive ? 'active' }} {{ item.isChildActive ? 'child-active' }}">
+                        <a href="{{ item.url }}{{ item.viewBag.suffix }}">{{ item.code ? ('nav.'~item.code)|_ : item.title|_ }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        {% endmacro %}
+
+        <nav role="navigation">
+            <div class="filter-icon">{{'Filter'|_}}:  <i class="fa fa-filter" aria-hidden="true"></i></div>
+            <div class="nav-icon"></div>
+            <ul class="top-nav">
+                {% if user %}
+                <li class="user-settings-link">
+                    <a class="user" href="{{ 'profile'|staticPage }}">{{ user.username }}</a>
+                    <a class="balance" href="{{'account-history'|page}}" >{{user.balance|number_format(2)}} {{'CNY'|_}}</a>
+                </li>
+                <li class="locale-picker">{% component 'localePicker' %}</li>
+                <li class="top-action-link logout-link">
+                    <a href="#" data-request="onLogout"
+                       {% if this.page.isPayment %}
+                       data-request-data="redirect: '/sign-in'"
+                       {% endif %}
+                    >{{ 'Sign Out'|_ }}</a></li>
+                {% else %}
+                <li class="locale-picker">{% component 'localePicker' %}</li>
+                <li class="top-action-link login-link"><a href="{{ 'sign-in'|staticPage }}">{{ 'Sign In'|_ }}</a></li>
+                {% endif %}
+            </ul>
+            {% if menuItems %}
+                <ul class="main-nav">
+                    {{ nav.render_menu(menuItems) }}
+                </ul>
+            {% endif %}
+        </nav>
+        <div class="background"></div>
+    </div>
+</header>

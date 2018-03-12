@@ -1,0 +1,119 @@
+# ===================================
+#  Extended Profile Field Definitions
+# ===================================
+
+email2:
+    label: Alt. Email
+    tab: Profile
+    type: text
+    span: auto
+title:
+    label: Title
+    tab: Profile
+    type: text
+    span: auto
+
+nationality:
+    label: Nationality
+    tab: Profile
+    type: text
+    span: auto
+dob:
+    label: DoB
+    tab: Profile
+    type: datepicker
+    format: d/m/Y
+    span: auto
+    mode: date
+    minDate: 1900-01-01
+    comment: DD/MM/YYYY
+kyc:
+    label: KYC
+    tab: Profile
+    type: checkbox
+    span: auto
+addr:
+    label: Address
+    tab: Profile
+    type: text
+    span: auto
+city:
+    label: City
+    tab: Profile
+    type: text
+    span: auto
+zip:
+    label: Post Code
+    tab: Profile
+    type: text
+    span: auto
+country:
+    label: Country
+    tab: Profile
+    type: text
+    span: auto
+chat_username:
+    label: Chat Username
+    tab: Profile
+    type: text
+    span: auto
+chat_type:
+    label: Chat Type
+    tab: Profile
+    type: dropdown
+    span: auto
+    options:
+        skype: Skype
+        wechat: Wechat
+        qq: QQ
+mobile:
+    label: Mobile
+    tab: Profile
+    type: text
+    span: auto
+phone:
+    label: Phone
+    tab: Profile
+    type: text
+    span: auto
+promo:
+    label: Promo
+    tab: Profile
+    type: text
+    span: auto
+currency:
+    label: Currency
+    tab: Profile
+    type: text
+    span: auto
+how_hear:
+    label: How Hear
+    tab: Profile
+    type: text
+    span: auto
+sec_question:
+    label: Sec Question
+    tab: Profile
+    type: text
+    span: auto
+sec_answer:
+    label: Sec Answer
+    tab: Profile
+    type: text
+    span: auto
+sec_question2:
+    label: Sec Question 2
+    tab: Profile
+    type: text
+    span: auto
+sec_answer2:
+    label: Sec Answer 2
+    tab: Profile
+    type: text
+    span: auto
+notes:
+    label: Admin Notes
+    tab: Profile
+    type: textarea
+    span: full
+

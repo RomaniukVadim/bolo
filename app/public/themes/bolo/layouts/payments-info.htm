@@ -1,0 +1,41 @@
+description = "Payments Info layout"
+
+[geoSettings]
+
+[localePicker]
+forceUrl = 1
+
+[staticPage]
+
+[boloSession]
+
+[boloAccount]
+paramCode = "code"
+==
+<?php
+function onStart(){
+    $user = Auth::getUser();
+    if($user){
+        return Redirect::to('/payments');
+    }else{
+        return Redirect::to('/sign-in');
+    }
+}
+?>
+==
+{variable name="footerLinks" label="Footer Links" tab="Extra" type="text"}default-footer-links{/variable}
+
+{% put bodyClass %} payments-promo{% endput %}
+{% partial 'site/header' %}
+<section id="content">
+    <article class="container">
+        <div class="header">
+            {% page %}
+        </div>
+        {% partial 'site/payment-options' %}
+        <div class="footer">
+            {% placeholder signinFooter title="Form Footer" type="html" %}
+        </div>
+    </article>
+</section>
+{% partial 'site/footer' %}

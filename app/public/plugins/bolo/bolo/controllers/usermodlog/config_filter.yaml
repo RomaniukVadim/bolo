@@ -1,0 +1,26 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+
+    admin:
+        label: Admin
+        modelClass: Backend\Models\User
+        nameFrom: login
+        conditions: admin_id in (:filtered)
+
+    admin_act:
+        label: Admin Actions
+        type: checkbox
+        conditions: admin_id IS NOT NULL
+
+    user_act:
+        label: User Actions
+        type: checkbox
+        conditions: admin_id IS NULL
+
+    created_date:
+        label: Created At
+        type: daterange
+        conditions: created_at >= ':after' AND created_at <= ':before'

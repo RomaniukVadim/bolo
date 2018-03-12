@@ -1,0 +1,13 @@
+fields:
+    after_login_redirect:
+        label: After Login Redirect
+        default: "/payments"
+        span: auto
+
+    zopim_chat_code:
+        label: Zopim Chat Code
+        type: textarea
+
+    analythic_codes:
+        label: Analythincs JS Code to add on each page
+        type: textarea

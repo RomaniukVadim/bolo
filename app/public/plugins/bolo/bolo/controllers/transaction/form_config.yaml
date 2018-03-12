@@ -1,0 +1,11 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+name: Transaction
+form: $/bolo/bolo/models/admintransaction/fields.yaml
+modelClass: Bolo\Bolo\Models\AdminTransaction
+
+create:
+    title: New Transaction
+    redirectClose: bolo/bolo/orders

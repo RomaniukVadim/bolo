@@ -1,0 +1,28 @@
+fields:
+    type:
+        label: Transaction Type
+        type: dropdown
+        options:
+            deposit: DEPOSIT
+            withdrawal: WITHDRAWAL
+            transfer: TRANSFER
+            manual_adjustment: MANUAL ADJUSTMENT
+            good_will: GOOD WILL
+            bonus: BONUS
+    currency:
+        label: Currency
+        default: CNY
+        attributes:
+            readonly: true
+    amount:
+        label: Amount
+        type: partial
+        path: $/bolo/bolo/models/admintransaction/_amount_field.htm
+    bookmaker_id:
+        label: Bookmaker
+        type: dropdown
+        options: listBookmakers
+    description:
+        label: Description
+        type: textarea
+        size: small

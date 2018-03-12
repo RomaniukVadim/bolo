@@ -1,0 +1,95 @@
+description = "Forgot password layout"
+
+[geoSettings]
+
+[localePicker]
+forceUrl = 1
+
+[staticPage]
+
+[boloSession]
+
+[boloResetPassword]
+paramCode = "code"
+==
+<?php
+function onStart(){
+    $user = Auth::getUser();
+    if($user)
+        return Redirect::to(\Cms\Classes\Theme::getActiveTheme()->after_login_redirect);
+
+    $this['capt'] = \Bolo\Bolo\Classes\Captcha::get();
+}
+?>
+==
+{variable name="footerLinks" label="Footer Links" tab="Extra" type="text"}default-footer-links{/variable}
+
+{% put bodyClass %} forget{% endput %}
+{% partial 'site/header' %}
+<section id="sign-in" class="block form-block" style="background-image: url({{ 'assets/images/background_home_1.jpg'|theme }});">
+    <article class="container">
+        {% if get('code') %}
+            <div class="reset-form">
+                <div class="header">
+                    {% placeholder newPswdHeader title="New Pswd Form Header" type="html" %}
+                </div>
+                <div class="form">
+                    {{ form_ajax('onResetPassword', {class: 'sign-in-form', url: '/devnull.html', method: 'get', 'data-request-success': "$('.reset-form').hide();$('.ok-msg').show();"}) }}
+                        {{ form_hidden('code', get('code'))}}
+                        <div class="form-row">
+                            <label for="newPassword">{{'reg.new_password'|_}}*</label>
+                            <input name="password" type="password" id="newPassword" placeholder="{{'New password'|_}}">
+                        </div>
+                        <div class="form-row">
+                            <label for="confirmPassword">{{'reg.new_password_confirmation'|_}}*</label>
+                            <input name="password_confirmation" type="password" id="confirmPassword" placeholder="{{'Confirm new password'|_}}">
+                        </div>
+                        <div class="form-row">
+                            <button tabindex="4" type="submit" >{{'Reset Password'|_}}</button>
+                        </div>
+                    {{ form_close() }}
+                </div>
+                <div class="footer">
+                    {% placeholder newPswdFooter title="New Pswd Form Footer" type="html" %}
+                </div>
+            </div>
+            <div class="ok-msg" style="display: none;">
+                {% placeholder resetOk title="New Pswd Ok" type="html" %}
+            </div>
+        {% else %}
+            <div class="reset-form">
+                <div class="header">
+                    {% page %}
+                </div>
+                <div class="form">
+                    {{ form_ajax('onRestorePassword', {class: 'sign-in-form', url: '/devnull.html', method: 'get', 'data-request-success': "$('.reset-form').hide();$('.ok-msg').show();"}) }}
+                        {{ form_hidden('capt_rnd', capt.random()) }}
+                        <div class="form-row">
+                            <label for="userSigninLogin">{{ 'Email'|_ }}</label>
+                            <input tabindex="1" name="email" type="email" id="userSigninLogin" placeholder="{{'Enter your email'|_}}">
+                        </div>
+                        <div class="form-row">
+                            <label for="userSigninCaptcha">{{ 'Captcha'|_ }}</label>
+                            <div class="capt">
+                                <div class="capt-image">{{ capt.image()|raw }}</div>
+                                <div class="capt-reload"><a href="javascript:captchas_image_reload('captchas.net')">{{'Reload Image'|_}}</a></div>
+
+                                <div class="capt-code"><input name="capt_code" tabindex="2" type="text" id="userSigninCaptcha" placeholder="{{'Enter Image Code'|_}}"></div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <button tabindex="3" type="submit" >{{'Send Me Password Reset Link'|_}}</button>
+                        </div>
+                    {{ form_close() }}
+                </div>
+                <div class="footer">
+                    {% placeholder sendResetFooter title="Send Form Footer" type="html" %}
+                </div>
+            </div>
+            <div class="ok-msg" style="display: none;">
+                {% placeholder forgetOk title="Send Form Ok" type="html" %}
+            </div>
+        {% endif %}
+    </article>
+</section>
+{% partial 'site/footer' %}

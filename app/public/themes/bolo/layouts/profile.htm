@@ -1,0 +1,85 @@
+description = "Profile layout"
+
+[geoSettings]
+
+[boloSession]
+security="user"
+redirect="sign-in"
+
+[localePicker]
+forceUrl = 1
+
+[staticPage]
+
+[boloAccount]
+==
+{variable name="footerLinks" label="Footer Links" tab="Extra" type="text"}default-footer-links{/variable}
+
+{% put bodyClass %} profile{% endput %}
+{% partial 'site/header' %}
+<section id="profile" class="form-block block">
+    <article class="container">
+        {% if get('ok') %}
+            <div class="profile-ok">
+                {% placeholder profileOk title="Profile Saved" type="html" %}
+            </div>
+        {% else %}
+            <div class="profile-header">
+                {% page %}
+            </div>
+            <div class="block-left">
+                {{ form_ajax('onUpdate', {class: 'form profile-form', url: '/devnull.html', method: 'get', redirect: "?ok=1", autocomplete: "off"}) }}
+                    <div class="user-settings">
+                        <div class="form-row">
+                            <label for="accountMobile">{{'reg.mobile'|_}}</label>
+                            <input name="mobile" type="text" id="accountMobile" value="{{ user.mobile }}" placeholder="{{'Please include country area code'|_}}" pattern="[^a-zA-Z]*">
+                        </div>
+
+                        <div class="form-row">
+                            <label for="accountEmail">{{'reg.email'|_}}*</label>
+                            <input disabled="disabled" name="email" type="email" id="accountEmail" value="{{ user.email }}" placeholder="{{'Enter your email'|_}}">
+                        </div>
+
+                        <div class="form-row">
+                            <label for="accountHow">{{'reg.chat_username'|_}}*</label>
+                            <input name="chat_username" type="text" value="{{user.chat_username}}" >
+                        </div>
+                        <div class="form-row inline">
+                            <label for="accountSkype">{{'reg.chat_type'|_}}</label><br>
+                            <label for="accountSkype">
+                                <input name="chat_type" type="radio" id="accountSkype" value="skype" {{ user.chat_type == 'skype' or not user.chat_type? 'checked'}}>
+                                {{'reg.skype'|_}}
+                            </label>
+                            <label for="accountWechat">
+                                <input name="chat_type" type="radio" id="accountWechat" value="wechat" {{ user.chat_type == 'wechat'? 'checked'}}>
+                                {{'reg.wechat'|_}}
+                            </label>
+                            <label for="accountQQ">
+                                <input name="chat_type" type="radio" id="accountQQ" value="qq" {{ user.chat_type == 'qq'? 'checked'}}>
+                                {{'reg.qq'|_}}
+                            </label>
+                        </div>
+                    </div>
+                    <div class="line-divider"></div>
+                    <div class="password-settings">
+                        <div class="form-row">
+                            <label for="newPassword">{{'reg.new_password'|_}}*</label>
+                            <input name="password" type="password" id="newPassword" placeholder="{{'New password'|_}}">
+                        </div>
+                        <div class="form-row">
+                            <label for="confirmPassword">{{'reg.new_password_confirmation'|_}}*</label>
+                            <input name="password_confirmation" type="password" id="confirmPassword" placeholder="{{'Confirm new password'|_}}">
+                        </div>
+                        <div class="form-row">
+                            <button type="submit">{{'Update'|_}}</button>
+                        </div>
+                    </div>
+                {{ form_close() }}
+            </div>
+            <div class="profile-footer">
+                {% placeholder profileFooter title="Profile Footer" type="html" %}
+            </div>
+        {% endif %}
+    </article>
+</section>
+{% partial 'site/footer' %}

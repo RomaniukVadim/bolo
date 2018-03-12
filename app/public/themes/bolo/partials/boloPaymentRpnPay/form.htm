@@ -1,0 +1,17 @@
+{{ form_ajax('onProceed', {class: 'form', url: '/devnull.html', method: 'get', success: 'window.scrollTo(0, 0)' }) }}
+    <div class="form-row">
+        <label for="paymentAmount">{{ 'pay.amount'|_ }} ({{'Min'|_}} {{tblMin}}, {{'Max'|_}} {{tblMax}})</label>
+        <input name="payment[amount]" value="{{ __SELF__.properties.gatewayOptMinAmount*1 ?: 100 }}" id="paymentAmount"/>
+        <label for="paymentCurrency">{{ 'pay.currency'|_ }}</label>
+        <input name="payment[currency]" id="paymentCurrency" value="{{'CNY'|_}}" readonly>
+    </div>
+
+    <div class="form-row">
+        <label for="paymentMessage">{{'pay.message'|_}}*</label>
+        <textarea name="payment[message]" maxlength="255" id="paymentMessage" placeholder="{{'Tell us about account detail'|_}}"></textarea>
+    </div>
+
+    <div class="form-row">
+        <button type="submit">{{'Proceed'|_}}</button>
+    </div>
+{{ form_close() }}

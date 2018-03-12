@@ -1,0 +1,23 @@
+[staticMenu footerMenu]
+==
+{% set menuItems = footerMenu.resetMenu(menuName|default('default-footer-links')) %}
+
+<footer>
+    <div class="container">
+        <ul class="links">
+            {% if menuItems %}
+                {% for item in menuItems %}
+                    <li class="footer-link">
+                        <a href="{{ item.url }}{{ item.viewBag.suffix }}">{{ item.title|_ }}</a>
+                    </li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+        <div class="footer-disclaimer">
+            {% content 'footer-disclaimer' %}
+        </div>
+        <div class="copyright">
+            {% content 'copyright' %}
+        </div>
+    </div>
+</footer>

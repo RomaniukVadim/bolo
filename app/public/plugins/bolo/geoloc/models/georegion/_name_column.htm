@@ -1,0 +1,6 @@
+<?= str_repeat('&nbsp;', $record->level * 6).$value ?>
+<?php if(($pl = \Bolo\Geoloc\Classes\GeoUser::getAdminTestPlace()) && in_array($record->id, $pl['regions'])): ?>
+    <span class="list-badge badge-info" title="Admin test mode enabled">
+        <i class="icon-info"></i>
+    </span>
+<?php endif ?>

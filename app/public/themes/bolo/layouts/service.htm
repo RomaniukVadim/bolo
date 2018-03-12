@@ -1,0 +1,13 @@
+description = "Service Home Section layout"
+
+[geoSettings]
+
+[staticPage]
+==
+<?php
+function onStart(){
+    return Redirect::to('/');
+}
+?>
+==
+{variable name="sideImg" label="Side Image" tab="Image" span="auto" type="mediafinder" mode="image"}{/variable}

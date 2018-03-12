@@ -1,0 +1,13 @@
+{% set data = __SELF__.form.vars() %}
+<form action="{{ data.action }}" method="post" class="form">
+    <div class="form-row payment-gateway-redirect payment-gateway-rpnpay">
+        <p>{{'pay.amount'|_}}: {{ data.amount|number_format(2) }} {{'CNY'|_}}</p>
+        {% for k,v in data.hidden %}
+            {{ form_hidden(k, v) }}
+        {% endfor %}
+        <div class="form-row">
+            <button type="submit">{{'Confirm'|_}}</button>
+        </div>
+    </div>
+</form>
+

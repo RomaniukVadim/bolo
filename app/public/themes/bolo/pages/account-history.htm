@@ -1,0 +1,75 @@
+title = "Account History"
+url = "/account-history"
+layout = "accounts"
+is_hidden = 0
+
+[viewBag]
+localeUrl[zh-cn] = "/account-history"
+localeUrl[zh-tw] = "/account-history"
+==
+use Bolo\Bolo\Models\Order;
+function onStart()
+{
+	$user = \Auth::getUser();
+	$data = get();
+	$type = isset($data['type'])&&$data['type']?$data['type']:null;
+	$from = isset($data['from'])&&$data['from']?$data['from']:null;
+	$to = isset($data['to'])&&$data['to']?$data['to']:null;
+	$query = Order::where('user_id', $user->id)->where('status', 'confirmed');
+	if($type){
+		$query->where('type', $type);
+	}
+	if($from){
+		$query->whereDate('created_at', '>=', $from);
+	}
+	if($to){
+		$query->whereDate('created_at', '<=', $to);
+	}
+	$this['orders'] = $query->orderBy('created_at', 'DESC')->paginate(25);
+	$this['data'] = $data;
+}
+==
+<div class="content-head accounts">
+	<h1 class="left">{{'Account History'|_}} <span class="type">{{data.type|_}}</span></h1>
+	<h2 class="right">{{'BALANCE'|_}} {{user.balance|number_format(2)}} {{'CNY'|_}}</h2>
+</div>
+<div class="filters">
+	<div class="mobile">
+		<div class=""></div>
+	</div>
+	<form>
+		<div class="filter">
+			{{'Transaction Type'|_}}:
+			<select name="type">
+				<option value="">{{'All'|_}}</option>
+				<option value="deposit" {% if(data.type=='deposit') %} selected {% endif %}>{{'Deposits'|_}}</option>
+				<option value="withdrawal" {% if(data.type=='withdrawal') %} selected {% endif %}>{{'Withdrawals'|_}}</option>
+				<option value="transfer" {% if(data.type=='transfer') %} selected {% endif %}>{{'Transfers'|_}}</option>
+				<option value="manual_adjustment" {% if(data.type=='manual_adjustment') %} selected {% endif %}>{{'Manual Adjustments'|_}}</option>
+				<option value="good_will" {% if(data.type=='good_will') %} selected {% endif %}>{{'Goodwill'|_}}</option>
+				<option value="bonus" {% if(data.type=='bonus') %} selected {% endif %}>{{'Bonus'|_}}</option>
+			</select>
+		</div>
+		<div class="filter">
+			{{'From'|_}}:
+			<input name="from" type="date" value="{{data.from}}">
+			{{'to'|_}}: <input name="to" type="date" value="{{data.to}}">
+		</div>
+		<div class="filter">
+			<button type="submit">{{'Update'|_}}</button>
+		</div>
+	</form>
+</div>
+<div class="table account-history">
+	<div class="head">
+		<div class="col col1">{{'Date/Time'|_}}</div>
+		<div class="col col3">{{'ID'|_}}</div>
+		<div class="col col5">{{'Description'|_}}</div>
+		<div class="col col4">{{'Payment Method'|_}}</div>
+		<div class="col col2">{{'Type'|_}}</div>
+		<div class="col col6">{{'Amount'|_}}</div>
+		<div class="col col7">{{'Balance'|_}}</div>
+	</div>
+	{% partial 'site/account-history' %}
+	{{ orders.render|raw }}
+</div>

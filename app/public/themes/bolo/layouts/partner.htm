@@ -1,0 +1,25 @@
+description = "Partner layout"
+
+[geoSettings]
+
+[localePicker]
+forceUrl = 1
+
+[staticPage]
+[boloSession]
+==
+{variable name="footerLinks" label="Footer Links" tab="Extra" type="text"}default-footer-links{/variable}
+{variable name="previevName" label="Home Name" tab="Home Preview" span="auto" type="text"}{/variable}
+{variable name="previevImg" label="Home Image" tab="Home Preview" span="auto" type="mediafinder" mode="image"}{/variable}
+{variable name="previevImgZHCN" label="Home Image ZH-CN" tab="Home Preview" span="auto" type="mediafinder" mode="image"}{/variable}
+{variable name="previevImgZHTW" label="Home Image ZH-TW" tab="Home Preview" span="auto" type="mediafinder" mode="image"}{/variable}
+{variable name="previevText" label="Home Text" tab="Home Preview" span="full" type="text"}{/variable}
+
+
+{% partial 'site/header' %}
+<section id="content">
+    <article class="container">
+        {% page %}
+    </article>
+</section>
+{% partial 'site/footer' %}

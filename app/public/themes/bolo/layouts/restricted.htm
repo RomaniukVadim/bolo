@@ -1,0 +1,24 @@
+description = "Restricted layout"
+
+[localePicker]
+forceUrl = 1
+
+[staticPage]
+[boloSession]
+==
+<?php
+function onStart()
+{
+    $this->page->restricted = 1;
+}
+?>
+==
+{variable name="footerLinks" label="Footer Links" tab="Extra" type="text"}default-footer-links{/variable}
+
+{% partial 'site/header' %}
+<section id="content">
+    <article class="container">
+        {% page %}
+    </article>
+</section>
+{% partial 'site/footer' %}

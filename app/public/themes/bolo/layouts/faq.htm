@@ -1,0 +1,19 @@
+description = "FAQ layout"
+
+[geoSettings]
+
+[localePicker]
+forceUrl = 1
+
+[staticPage]
+[boloSession]
+==
+{variable name="footerLinks" label="Footer Links" tab="Extra" type="text"}default-footer-links{/variable}
+
+{% partial 'site/header' %}
+<section id="faq">
+    <article class="container">
+        {% page %}
+    </article>
+</section>
+{% partial 'site/footer' %}

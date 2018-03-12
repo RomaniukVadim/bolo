@@ -1,0 +1,30 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+
+    status:
+        label: Status
+        type: group
+        scope: byStatus
+        options:
+            created: Created
+            pending: Pending
+            confirmed: Confirmed
+
+    created_date:
+        label: Created At
+        type: daterange
+        conditions: created_at >= ':after' AND created_at <= ':before'
+    type:
+        label: Transaction type
+        type: group
+        scope: byType
+        options:
+            deposit: DEPOSIT
+            withdrawal: WITHDRAWAL
+            transfer: TRANSFER
+            manual_adjustment: MANUAL ADJUSTMENT
+            good_will: GOOD WILL
+            bonus: BONUS

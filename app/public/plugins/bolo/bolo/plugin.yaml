@@ -1,0 +1,6 @@
+plugin:
+    name: 'bolo.bolo::lang.plugin.name'
+    description: 'bolo.bolo::lang.plugin.description'
+    author: bolo
+    icon: oc-icon-binoculars
+    homepage: ''

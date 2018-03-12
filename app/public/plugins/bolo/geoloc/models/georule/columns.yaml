@@ -1,0 +1,29 @@
+# ===================================
+#  Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: id
+        invisible: true
+
+    name:
+        label: Name
+        searchable: yes
+
+    priority:
+        label: Priority
+
+    active:
+        label: Active
+        type: partial
+        clickable: false
+        cssClass: nolink
+        path: ~/plugins/bolo/geoloc/models/georegion/_active_column.htm
+
+    remove:
+        label: Remove
+        type: partial
+        clickable: false
+        cssClass: nolink
+        path: ~/plugins/bolo/geoloc/models/georule/_remove_column.htm

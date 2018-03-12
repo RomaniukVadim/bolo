@@ -1,0 +1,31 @@
+{{ form_ajax('onSignin', {class: 'sign-in-form', url: '/devnull.html', method: 'get', 'data-request-error': "$(this).request('onSigninReload')"}) }}
+{{ form_hidden('redirect', redirect|default(this.theme.after_login_redirect)|staticPage) }}
+{{ form_hidden('capt_rnd', capt.random()) }}
+<div class="form-row">
+    <label for="userSigninLogin">{{ 'Username'|_ }}</label>
+    <input tabindex="1" name="login" type="username" id="userSigninLogin" value="{{signedInData.login|default('')}}" placeholder="{{'Enter your username'|_}}">
+</div>
+<div class="form-row">
+    <label for="userSigninPassword">{{ 'Password'|_ }}</label>
+    <input tabindex="2" name="password" type="password" id="userSigninPassword"  value="{{signedInData.password|default('')}}" placeholder="{{'Enter your password'|_}}">
+</div>
+<div class="form-row">
+    <label for="userSigninCaptcha">{{ 'Captcha'|_ }}</label>
+    <div class="capt">
+        <div class="capt-image">{{ capt.image()|raw }}</div>
+        <div class="capt-reload"><a href="javascript:captchas_image_reload('captchas.net')">{{'Reload Image'|_}}</a></div>
+
+        <div class="capt-code"><input name="capt_code" tabindex="3" type="text" id="userSigninCaptcha" placeholder="{{'Enter Image Code'|_}}" autocomplete="off"></div>
+    </div>
+</div>
+<div class="form-row">
+    <button tabindex="4" type="submit" >{{'Sign in'|_}}</button>
+</div>
+<div class="form-row">
+    <br>
+    <a href="{{ 'forgot-password'|staticPage}}" class="link">{{ 'Forgot Password?'|_ }}</a>
+</div>
+<div class="form-row links">
+    <a href="{{ 'home'|staticPage }}#register" class="links-button">{{'Register'|_}}</a>
+</div>
+{{ form_close() }}

@@ -1,0 +1,32 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+
+    continent:
+        label: Continent
+        modelClass: Bolo\Geoloc\Models\GeoRegionContinent
+        nameFrom: name
+        scope: byContinent
+
+    country:
+        label: Country
+        modelClass: Bolo\Geoloc\Models\GeoRegionCountry
+        nameFrom: name
+        scope: byCountry
+
+    level:
+        label: Type
+        type: group
+        scope: level
+        options:
+            '0 ': Continents
+            '1 ': Countries
+
+    active:
+        label: Active
+        type: switch
+        conditions:
+            - active = '0'
+            - active = '1'

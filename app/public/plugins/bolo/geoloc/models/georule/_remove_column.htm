@@ -1,0 +1,10 @@
+
+<?php if($record->id > 1): ?>
+<button
+    class="btn btn-sm btn-danger"
+    data-request="onRemove"
+    data-request-data="id: '<?= $record->id ?>'"
+    data-request-confirm="Are you sure?"
+    data-stripe-load-indicator
+    ><span class="icon-trash"></span></button>
+<?php endif ?>

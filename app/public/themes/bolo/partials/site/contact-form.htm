@@ -1,0 +1,17 @@
+{{ form_ajax('onContactSend', {class: 'contact-form', url: '/devnull.html', method: 'get', autocomplete: "off"}) }}
+    <div class="form-row">
+        <label for="contactName">{{'cont.name'|_}}*</label>
+        <input name="name" type="text" id="contactName" placeholder="{{'Enter your name'|_}}">
+    </div>
+    <div class="form-row">
+        <label for="contactEmail">{{'cont.email'|_}}*</label>
+        <input name="email" type="email" id="contactEmail" placeholder="{{'Enter your email'|_}}">
+    </div>
+    <div class="form-row">
+        <label for="contactMessage">{{'cont.message'|_}}*</label>
+        <textarea name="message" id="contactMessage" placeholder="{{'Enter your message'|_}}"></textarea>
+    </div>
+    <div class="form-row">
+        <button type="submit">{{'Submit'|_}}</button>
+    </div>
+{{ form_close() }}

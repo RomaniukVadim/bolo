@@ -1,0 +1,16 @@
+# ===================================
+#  Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: id
+
+    name:
+        label: name
+        type: text
+
+    created_at:
+        label: Created At
+        type: datetime
+        format: d/m/Y

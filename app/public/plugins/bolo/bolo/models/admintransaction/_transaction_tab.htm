@@ -1,0 +1,33 @@
+<?php
+    $orders = \Bolo\Bolo\Models\Order::where('user_id', $model->id)->orderBy('created_at', 'DESC')->get();
+?>
+
+<div data-control="toolbar">
+    <a href="<?php echo \Backend::url('bolo/bolo/transaction/create') ?>?user=<?php echo $model->id ?>" class="btn btn-primary oc-icon-plus">
+        Add transaction
+    </a>
+</div>
+<table class="table account-history">
+    <tr class="head">
+        <th class="col col1">Date/Time</th>
+        <th class="col col2">Type</th>
+        <th class="col col4">ID</th>
+        <th class="col col3">Description</th>
+        <th class="col col5">Payment Method</th>
+        <th class="col col5">Status</th>
+        <th class="col col6">Amount</th>
+        <th class="col col7">Balance</th>
+    </tr>
+    <?php foreach($orders as $order): ?>
+    <tr>
+        <td class="col col1"><?php echo $order->created_at->format('d/m/Y H:i:s') ?></td>
+        <td class="col col2"><?php echo $order->type?\RainLab\Translate\Models\Message::get($order->type):\RainLab\Translate\Models\Message::get('deposit') ?></td>
+        <td class="col col4"><?php echo $order->id ?></td>
+        <td class="col col3"><?php echo $order->message ?></td>
+        <td class="col col5"><?php echo $order->gateway_name?\RainLab\Translate\Models\Message::get($order->gateway_name):\RainLab\Translate\Models\Message::get('Bolo Admin') ?></td>
+        <td class="col col5"><?php echo \RainLab\Translate\Models\Message::get($order->status) ?></td>
+        <td class="col col6"><?php echo number_format($order->amount, 2) ?></td>
+        <td class="col col7"><?php echo number_format($order->balance, 2) ?></td>
+    </tr>
+    <?php endforeach ?>
+</table>

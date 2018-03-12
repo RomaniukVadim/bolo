@@ -1,0 +1,1026 @@
+// Responsive Overrides
+
+/* Iphone fix */
+@media screen and (max-device-width: 480px){
+	body{
+    	-webkit-text-size-adjust: none;
+	}
+}
+
+/* Mobile CSS*/
+@media screen 	and (max-width : 700px) {
+	header{
+		height: 80px;
+		background-color: $red;
+		.logo{
+			width: 115px !important;
+			height: 70px !important;
+			margin: 3px 10px;
+			&.en{
+				@include spritesheet(-10px -110px !important);	
+			}
+			&.zh-cn{
+				@include spritesheet(-135px -110px !important);	
+			}
+			&.zh-tw{
+				@include spritesheet(-260px -110px !important);	
+			}
+		}
+		.background{
+			height: 80px;
+		}
+		ul{
+			display: none;
+			&.top-nav{
+				position: absolute;
+				top: 80px;
+				left: 0px;
+				right: 0px;
+				height: 50px;
+				margin: 0px 0px 0px 0px;
+				background-color: darken($red,15%);
+				padding: 15px 20px 10px 20px;
+				float: none;
+				width: 100%;
+				height: 80px;
+			}
+			&.main-nav{
+				position: absolute;
+				top: 150px;
+				left: 0px;
+				right: 0px;
+				float: none;
+				width: 100%;
+				background-color: $red;
+				padding: 0px 0px 0px 0px;
+				@include border-radius-bottom(10px);
+				>li{
+					display: block;
+					width: 100%;
+					border-bottom: 1px solid darken($red, 10%);
+					&:last-child{
+						border-bottom: 0px;
+					}
+					a{
+						font-size: 14px;
+						padding: 10px 20px;
+					}
+				}
+			}
+		}
+		&.scrolled{
+			.background{
+				height: 0px;
+			}
+			ul{
+				&.top-nav{
+					margin-top: 0px;
+				}
+				&.main-nav{
+					margin-top: 0px;
+					>li{
+						a{
+							font-size: 14px;
+							text-shadow: 0px 0px 0px rgba($black,0);
+						}
+					}
+				}
+			}
+		}
+		nav{
+			.nav-icon{
+				cursor: pointer;
+				z-index: 1000;
+				display: block;
+				width: 42px;
+				height: 42px;
+				position: absolute;
+				top: 18px;
+				right: 18px;
+				border: 1px solid $goldenyellow;
+				cursor: pointer;
+				@include border-radius(5px);
+				@include spritesheet(-10px -200px);
+			}
+		}
+		&.layout-home{
+			ul{
+				&.top-nav{
+					margin: 0px 0px 0px 0px;
+				}
+				&.main-nav{
+					margin: 0px;
+				}
+			}
+		}
+		&.layout-accounts{
+			.filter-icon{
+				display: block;
+				height: 42px;
+				position: absolute;
+				top: 29px;
+				right: 70px;
+				font-size: 20px;
+				text-transform: uppercase;
+				color: $goldenyellow;
+				z-index: 1000;
+				cursor: pointer;
+			}
+		}
+		&.mobile-active{
+			ul{
+				display: block;
+			}
+		}
+	}
+	footer{
+		.container{
+			padding: 30px;
+		}
+		.footer-disclaimer, ul.links{
+			float: none;
+			width: 100%;
+		}
+		ul.links{
+			margin-bottom: 30px;
+			li{
+				a{
+					width: 100%;
+				}
+			}
+		}
+	}
+	.container{
+		width: 100%;
+		margin: auto;
+	}
+	section{
+		&.block{
+			width: 100%;
+			height: auto;
+			article{
+				padding: 30px;
+				img{
+					&.preview{
+						max-width: 100%;
+						width: 100%;
+						float: none;
+						margin-bottom: 30px;
+					}
+				}
+				.content{
+					width: 100%;
+					float: none;
+				}
+			}
+		}
+		&#home{
+			background-attachment: initial;
+			.slider{
+				width: 100%;
+				.slide{
+					.slide-content{
+						top: 15%;
+						h1{
+							font-size: 42px;
+						}
+						h5{
+							font-size: 24px;
+						}
+					}
+				}
+			}
+		}
+		&#about{
+			article{
+				padding: 30px;
+			}
+		}
+		&#services{
+			article{
+				padding: 30px;
+			}
+			.services-section{
+				article{
+					padding: 30px;
+				}
+			}
+		}
+		&#partners{
+			article{
+				padding: 30px;
+			}
+			.content{
+				.grid{
+					.box{
+						width: 100%;
+						margin-bottom: 30px;
+						display: block;
+						height: 300px;
+						&:after{
+							content: ' ';
+							position: absolute;
+							bottom: -5px;
+							left: 0px;
+							right: 0px;
+							border-bottom: 1px dotted darken($white, 20%);
+						}
+						.flow{
+							top: 0px;
+							bottom: 0px;
+							a.btn-action{
+								bottom: 5px;
+							}
+						}
+						&:hover{
+							.flow{
+								top: 0px;
+								bottom: 0px;	
+							}
+						}
+					}
+				}
+			}
+		}
+		&#content{
+			article{
+				&.container{
+					padding: 100px 30px 30px 30px;
+				}
+			}
+		}
+		&.form-block{
+			.form{
+				width: 100%;
+			}
+		}
+		&#sign-in, &#register{
+			article.container{
+				padding-top: 30px;
+			}
+		}
+		&#register{
+			.block-left, .block-right{
+				width: 100%;
+				float: none;
+			}
+		}
+		&#faq{
+			article{
+				&.container{
+					padding: 100px 30px 30px 30px;
+				}
+				h1.title{
+					margin-left: auto;
+				}
+				aside{
+					width: 100%;
+					float: none;
+					margin-bottom: 30px;
+				}
+				div.content{
+					float: none;
+					width: 100%;
+				}
+			}
+		}
+		.payments-options{
+			.head, .row, .body{
+				.col{
+					border-right: 0px solid darken($white, 15%);
+					text-align: left;
+					height: auto;
+					&:first-child{
+						border-left: 0px solid darken($white, 15%);
+					}
+					span.title{
+						display: block;
+						padding-bottom: 4px;
+						font-size: 10px;
+						text-transform: uppercase;
+						color: darken($white, 40%);
+					}
+				}
+				.col-row{
+					background-color: darken($white, 15%);
+					text-align: left;
+					font-size: 16px;
+				}
+			}
+			.head{
+				display: none;
+				background-color: darken($white, 20%);
+				border: 1px solid darken($white,30%);
+				.col{
+					height: auto;
+				}
+
+				.col2, .col3, .col4, .col5, .col6 , .col7, .col8, .col9{
+					display: none;
+					width: auto;
+				}
+			}
+			.row{
+				border:  1px solid darken($white, 70%);
+				background-color: $white;
+				padding: 0px;
+				text-align: left;
+				margin-bottom: 10px;
+				@include border-radius(5px);
+				&.desktop{
+					display: none;
+				}
+				&.mobile{
+					display: block;
+				}
+				&:nth-child(odd){
+					background-color: $white;
+				}
+				.col{
+					min-height: 60px;
+				}
+			}
+			.col1{
+				text-align: center !important;
+				width: 100%;
+				border-bottom: 1px dotted darken($white, 40%);
+				img{
+					min-height: 70px;
+				}
+			}
+			.col2, .col3, .col4, .col5, .col6 , .col7{
+				width: calc(100% / 3);
+				float: left;
+				display: block;
+				text-align: center !important;
+				border-bottom: 1px dotted darken($white, 40%);
+			}
+			.col8, .col9{
+				width: 100%;
+				min-height: auto !important;
+			}
+			.col9{
+				padding: 10px !important;
+			}
+			a{
+				&.payment-details{
+					width: 100%;
+					margin: auto;
+				}
+				&.payment-info{
+					margin: auto;
+				}
+			}
+		}
+		.content-head{
+			&.accounts{
+				h1{
+					font-size: 24px;
+					float: none;
+				}
+				h2{
+					font-size: 18px;
+					float: none;
+				}
+			}
+		}
+		.filters{
+			display: none;
+			position: fixed;
+			top: 80px;
+			left: 0px;
+			right: 0px;
+			background-color: $white;
+			border: 0px;
+			padding: 20px;
+			height: 340px;
+			text-align: left;
+			@include box-shadow(0px 10px 30px rgba($black,.5));
+			z-index: 1000;
+			&:after{
+				content: ' ';
+				position: fixed;
+				top: 420px;
+				left: 0px;
+				right: 0px;
+				bottom: 0px;
+				background-color: rgba($red,.75);
+				z-index: -1;
+			}
+			.filter{
+				font-size: 14px;
+				display: block;
+				margin: 5px 0px;
+				padding: 0px;
+				color: $black;
+				select, input, button{
+					width: 100%;
+					margin: 5px 0px;
+				}
+				button{
+					background-color: $red;
+					color: $white;
+					padding: 15px;
+					font-size: 20px;
+					text-align: left;
+					width: auto;
+					@include border-radius(5px);
+				}
+			}
+		}
+		.table{
+			.head{
+				display: none;
+			}
+			.body{
+				.row{
+					background-color: $white;
+					overflow: auto;
+					border: 1px solid darken($white, 7%);
+					border-bottom: 5px solid darken($white, 15%);
+				}
+			}
+			&.account-history{
+				.row{
+					margin-bottom: 40px;
+					border: 2px solid darken($white, 7%);
+					@include border-radius(5px);
+					@include box-shadow(0px 5px 15px 0px rgba($black,.05));
+					&.mobile{
+						display: block;
+					}
+					&.desktop{
+						display: none;
+					}
+				}
+				.col{
+					display: block;
+					span{
+						display: block;
+						font-size: 10px;
+						text-transform: uppercase;
+						color: darken($white, 35%);
+					}
+					&.col1{
+						width: 40%;
+						float: left;
+						background-color: darken($white, 7%);
+						padding: 15px 10px;
+						text-align: left;
+						font-size: 22px;
+						font-weight: bold;
+						color: $black;
+					}
+					&.col2{
+						width: 60%;
+						float: left;
+						background-color: darken($white, 7%);
+						padding: 15px 10px;
+						text-align: right;
+						font-size: 22px;
+						font-weight: bold;
+						text-shadow: 1px 1px 0px $white;
+						&.positive{
+							color: $apple;
+						}
+						&.negative{
+							color: $red;
+						}
+					}
+					&.col3{
+						clear: both;
+						width: 100%;
+						float: none;
+						text-align: left;
+						padding: 5px 10px;
+						border-bottom: 1px solid darken($white, 10%);
+					}
+					&.col4{
+						width: 100%;
+						float: none;
+						text-align: left;
+						padding: 5px 10px;
+						border-bottom: 1px solid darken($white, 10%);
+					}
+					&.col5{
+						text-align: left;
+						clear: both;
+						width: 100%;
+						padding: 5px 10px;
+					}
+					&.col6{
+						clear: both;
+						width: 100%;
+						float: none;
+						text-align: left;
+						padding: 10px;
+					}
+					&.col7{
+						width: 100%;
+						float: none;
+						text-align: left;
+						padding: 10px;
+					}
+					&.col8{
+						width: 100%;
+						float: none;
+						text-align: left;
+						padding: 10px;
+					}
+				}
+			}
+		}
+	}
+}
+
+/* Tablet CSS */
+@media screen 	and (min-width : 700px) 
+				and (max-width : 1150px) {
+	header{
+		height: 80px;
+		background-color: $red;
+		.logo{
+			width: 115px !important;
+			height: 70px !important;
+			margin: 3px 10px;
+			&.en{
+				@include spritesheet(-10px -110px !important);	
+			}
+			&.zh-cn{
+				@include spritesheet(-135px -110px !important);	
+			}
+			&.zh-tw{
+				@include spritesheet(-260px -110px !important);	
+			}
+		}
+		.background{
+			height: 80px;
+		}
+		ul{
+			display: none;
+			&.top-nav{
+				position: absolute;
+				top: 80px;
+				left: 0px;
+				right: 0px;
+				height: 50px;
+				margin: 0px 0px 0px 0px;
+				background-color: darken($red,15%);
+				padding: 15px 20px 10px 20px;
+				float: none;
+				width: 100%;
+				height: 80px;
+			}
+			&.main-nav{
+				position: absolute;
+				top: 150px;
+				left: 0px;
+				right: 0px;
+				float: none;
+				width: 100%;
+				background-color: $red;
+				padding: 0px 0px 0px 0px;
+				@include border-radius-bottom(10px);
+				>li{
+					display: block;
+					width: 100%;
+					border-bottom: 1px solid darken($red, 10%);
+					&:last-child{
+						border-bottom: 0px;
+					}
+					a{
+						font-size: 14px;
+						padding: 10px 20px;
+					}
+				}
+			}
+		}
+		&.scrolled{
+			.background{
+				height: 0px;
+			}
+		}
+		nav{
+			.nav-icon{
+				z-index: 1000;
+				display: block;
+				width: 42px;
+				height: 42px;
+				position: absolute;
+				top: 18px;
+				right: 18px;
+				border: 1px solid $goldenyellow;
+				cursor: pointer;
+				@include border-radius(5px);
+				@include spritesheet(-10px -200px);
+			}
+		}
+		&.layout-home{
+			ul{
+				&.top-nav{
+					margin: 0px 0px 0px 0px;
+				}
+				&.main-nav{
+					margin: 0px;
+				}
+			}
+		}
+		&.layout-accounts{
+			.filter-icon{
+				display: block;
+				height: 42px;
+				position: absolute;
+				top: 29px;
+				right: 70px;
+				font-size: 20px;
+				text-transform: uppercase;
+				color: $goldenyellow;
+				z-index: 1000;
+				cursor: pointer;
+			}
+		}
+		&.mobile-active{
+			ul{
+				display: block;
+			}
+		}
+	}
+	footer{
+		.container{
+			padding: 30px;
+		}
+		.footer-disclaimer, ul.links{
+			float: none;
+			width: 100%;
+		}
+		ul.links{
+			margin-bottom: 30px;
+			li{
+				a{
+					width: 100%;
+				}
+			}
+		}
+	}
+	.container{
+		width: 100%;
+		margin: auto;
+	}
+	section{
+		&.block{
+			width: 100%;
+			height: auto;
+			article{
+				padding: 30px;
+			}
+		}
+		&#home{
+			.slider{
+				width: 100%;
+				.slide{
+					.slide-content{
+						top: 15%;
+						h1{
+							font-size: 42px;
+						}
+						h5{
+							font-size: 24px;
+						}
+					}
+				}
+			}
+		}
+		&#about{
+			article{
+				padding: 30px;
+			}
+		}
+		&#services{
+			article{
+				padding: 30px;
+			}
+			.services-section{
+				article{
+					padding: 30px;
+				}
+			}
+		}
+		&#partners{
+			article{
+				padding: 30px;
+			}
+			.content{
+				.grid{
+					.box{
+						height: 300px;
+						.flow{
+							top: 0px;
+							bottom: 0px;
+							a.btn-action{
+								bottom: 5px;
+							}
+						}
+						&:hover{
+							.flow{
+								top: 0px;
+								bottom: 0px;	
+							}
+						}
+					}
+				}
+			}
+		}
+		&#content{
+			article{
+				&.container{
+					padding: 100px 30px 30px 30px;
+				}
+			}
+		}
+		&.form-block{
+			.form{
+				width: 100%;
+			}
+		}
+		&#sign-in, &#register{
+			article.container{
+				padding-top: 30px;
+			}
+		}
+		&#register{
+		}
+		&#faq{
+			article{
+				&.container{
+					padding: 100px 30px 30px 30px;
+				}
+				h1.title{
+					margin-left: auto;
+				}
+				aside{
+					width: 100%;
+					float: none;
+					margin-bottom: 30px;
+				}
+				div.content{
+					float: none;
+					width: 100%;
+				}
+			}
+		}
+		.payments-options{
+			.head, .row, .body{
+				.col{
+					border-right: 0px solid darken($white, 15%);
+					text-align: left;
+					height: auto;
+					&:first-child{
+						border-left: 0px solid darken($white, 15%);
+					}
+					span.title{
+						display: block;
+						padding-bottom: 4px;
+						font-size: 10px;
+						text-transform: uppercase;
+						color: darken($white, 40%);
+					}
+				}
+				.col-row{
+					background-color: darken($white, 15%);
+					text-align: left;
+					font-size: 16px;
+				}
+			}
+			.head{
+				display: none;
+				background-color: darken($white, 20%);
+				border: 1px solid darken($white,30%);
+				.col{
+					height: auto;
+				}
+
+				.col2, .col3, .col4, .col5, .col6 , .col7, .col8, .col9{
+					display: none;
+					width: auto;
+				}
+			}
+			.row{
+				border:  1px solid darken($white, 70%);
+				background-color: $white;
+				padding: 0px;
+				text-align: left;
+				margin-bottom: 10px;
+				@include border-radius(5px);
+				&.desktop{
+					display: none;
+				}
+				&.mobile{
+					display: block;
+				}
+				&:nth-child(odd){
+					background-color: $white;
+				}
+				.col{
+					min-height: 60px;
+				}
+			}
+			.col1{
+				text-align: center !important;
+				width: 100%;
+				border-bottom: 1px dotted darken($white, 40%);
+				img{
+					min-height: 70px;
+				}
+			}
+			.col2, .col3, .col4, .col5, .col6 , .col7{
+				width: calc(100% / 3);
+				float: left;
+				display: block;
+				text-align: center !important;
+				border-bottom: 1px dotted darken($white, 40%);
+			}
+			.col8, .col9{
+				width: 100%;
+				min-height: auto !important;
+			}
+			.col9{
+				padding: 10px !important;
+			}
+			a{
+				&.payment-details{
+					width: 100%;
+					margin: auto;
+				}
+				&.payment-info{
+					margin: auto;
+				}
+			}
+		}
+		.content-head{
+			&.accounts{
+				h1{
+					font-size: 24px;
+					float: none;
+				}
+				h2{
+					font-size: 18px;
+					float: none;
+				}
+			}
+		}
+		.filters{
+			display: none;
+			position: fixed;
+			top: 80px;
+			left: 0px;
+			right: 0px;
+			background-color: $white;
+			border: 0px;
+			padding: 20px;
+			height: 340px;
+			text-align: left;
+			@include box-shadow(0px 10px 30px rgba($black,.5));
+			z-index: 1000;
+			&:after{
+				content: ' ';
+				position: fixed;
+				top: 420px;
+				left: 0px;
+				right: 0px;
+				bottom: 0px;
+				background-color: rgba($red,.75);
+				z-index: -1;
+			}
+			.filter{
+				font-size: 14px;
+				display: block;
+				margin: 5px 0px;
+				padding: 0px;
+				color: $black;
+				select, input, button{
+					width: 100%;
+					margin: 5px 0px;
+				}
+				button{
+					background-color: $red;
+					color: $white;
+					padding: 15px;
+					font-size: 20px;
+					text-align: left;
+					width: auto;
+					@include border-radius(5px);
+				}
+			}
+		}
+		.table{
+			.head{
+				display: none;
+			}
+			.body{
+				.row{
+					background-color: $white;
+					overflow: auto;
+					border: 1px solid darken($white, 7%);
+					border-bottom: 5px solid darken($white, 15%);
+				}
+			}
+			&.account-history{
+				overflow: auto;
+				.row{
+					width: calc( (100% - 40px) / 2 );
+					margin-right: 40px;
+					float: left;
+					margin-bottom: 40px;
+					border: 2px solid darken($white, 7%);
+					@include border-radius(5px);
+					@include box-shadow(0px 5px 15px 0px rgba($black,.05));
+					&:nth-child(4n){
+						margin-right: 0px;
+					}
+					&.mobile{
+						display: block;
+					}
+					&.desktop{
+						display: none;
+					}
+				}
+				.col{
+					display: block;
+					span{
+						display: block;
+						font-size: 10px;
+						text-transform: uppercase;
+						color: darken($white, 35%);
+					}
+					&.col1{
+						width: 40%;
+						float: left;
+						background-color: darken($white, 7%);
+						padding: 15px 10px;
+						text-align: left;
+						font-size: 22px;
+						font-weight: bold;
+						color: $black;
+					}
+					&.col2{
+						width: 60%;
+						float: left;
+						background-color: darken($white, 7%);
+						padding: 15px 10px;
+						text-align: right;
+						font-size: 22px;
+						font-weight: bold;
+						text-shadow: 1px 1px 0px $white;
+						&.positive{
+							color: $apple;
+						}
+						&.negative{
+							color: $red;
+						}
+					}
+					&.col3{
+						width: 100%;
+						float: none;
+						clear: both;
+						text-align: left;
+						padding: 5px 10px;
+						border-bottom: 1px solid darken($white, 10%);
+					}
+					&.col4{
+						width: 100%;
+						float: none;
+						text-align: left;
+						padding: 5px 10px;
+						border-bottom: 1px solid darken($white, 10%);
+					}
+					&.col5{
+						text-align: left;
+						clear: both;
+						width: 100%;
+						padding: 5px 10px;
+					}
+					&.col6{
+						clear: both;
+						width: 100%;
+						float: none;
+						text-align: left;
+						padding: 10px;
+					}
+					&.col7{
+						width: 100%;
+						float: none;
+						text-align: left;
+						padding: 10px;
+					}
+					&.col8{
+						width: 100%;
+						float: none;
+						text-align: left;
+						padding: 10px;
+					}
+				}
+			}
+		}
+	}
+}
+

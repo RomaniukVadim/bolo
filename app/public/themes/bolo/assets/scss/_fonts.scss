@@ -1,0 +1,158 @@
+/* 
+FONT SETTINGS 
+Font import, styles, colors and variable options
+*/
+
+//Import EXO 2
+@import url(https://fonts.googleapis.com/css?family=Exo+2:400,600,400italic,600italic);
+
+// Global elements
+*{
+	font-family: $font_normal;
+	font-weight:normal;
+}
+p{
+	font-family: $font-normal;
+	font-weight:normal;
+	margin:0px 0px 15px 0px;
+	a{
+		&:hover{
+			text-decoration:underline;
+		}
+	}
+}
+a{
+	text-decoration:none;
+	cursor:pointer;
+	color: $red;
+	@include transition(200ms);
+	&:link{
+		text-decoration:none;
+	}
+	&:active{
+		text-decoration:none;
+	}
+	&:visited{
+		text-decoration:none;
+	}
+	&:hover{
+		text-decoration:none;
+	}
+}
+.inner_content p a{
+	text-decoration: underline;
+}
+
+b{
+	font-family: $font-normal;
+	font-weight: bold;
+}
+strong{
+	font-family: $font-normal;
+	font-weight: bold;
+}
+.exo-normal{
+	font-family: $font-exo;
+	font-weight:400;
+}
+.exo-bold{
+	font-family: $font-exo;
+	font-weight:600;
+}
+.asian-font{
+	font-family: $font-asian;
+}
+// Headers
+h1{
+	font-family: $font-exo;
+	font-size: 32px;
+	font-weight: 600;
+	margin: 0px;
+	padding:0px;
+	text-transform: uppercase;
+}
+h2{
+	font-family: $font-exo;
+	font-size:28px;
+	font-weight:600;
+	margin:0px;
+	padding:0px;
+	text-transform: uppercase;
+}
+h3{
+	font-family: $font-exo;
+	font-size:24px;
+	font-weight:600;
+	margin:0px;
+	padding:0px;
+	text-transform: uppercase;
+}
+h4{
+	font-family: $font-exo;
+	font-size:22px;
+	font-weight:600;
+	margin:0px;
+	padding:0px;
+}
+h5{
+	font-family: $font-exo;
+	font-size:20px;
+	font-weight:600;
+	margin:0px;
+	padding:0px;
+}
+h6{
+	font-family: $font-exo;
+	font-size:18px;
+	font-weight:600;
+	margin:0px;
+	padding:0px;
+}
+
+// Text styles
+.uppercase{
+	text-transform:uppercase;
+}
+.lowercase{
+	text-transform:lowercase;
+}
+.capitalize{
+	text-transform:capitalize;
+}
+.nowrap{
+	white-space:nowrap;
+}
+.wrap{
+	white-space:normal;
+}
+.no-underline{
+	text-decoration:none;
+}
+.underline{
+	text-decoration:underline;
+}
+
+// Text alignments
+.text-center{
+	text-align:center;
+}
+.text-justify{
+	text-align:justify;
+}
+.text-left{
+	text-align:left;
+}
+.text-right{
+	text-align:right;
+}
+
+//Layouts
+.clear{
+	clear: both
+}
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}

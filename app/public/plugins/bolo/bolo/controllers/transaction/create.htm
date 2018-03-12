@@ -1,0 +1,30 @@
+<?php Block::put('breadcrumb') ?>
+    <ul>
+        <li><a href="<?= Backend::url('rainlab/user/users') ?>"><?= e(trans('rainlab.user::lang.users.menu_label')) ?></a></li>
+        <li><?= e(trans($this->pageTitle)) ?></li>
+    </ul>
+<?php Block::endPut() ?>
+
+<?= Form::open(['class'=>'layout']) ?>
+<input type="hidden" name="user_id" value="<?php echo get('user') ?>" />
+<div class="layout-row">
+    <?= $this->formRender() ?>
+</div>
+
+<div class="form-buttons">
+    <div class="loading-indicator-container">
+        <button
+                type="button"
+                data-request="onCreate"
+                data-request-data="close:true"
+                data-load-indicator="Creating Transaction..."
+                class="btn btn-default">
+            Create and Close
+        </button>
+        <span class="btn-text">
+            or <a href="<?= \Backend::url('rainlab/user/users/preview/'.get('user')) ?>">Cancel</a>
+        </span>
+    </div>
+</div>
+
+<?= Form::close() ?>

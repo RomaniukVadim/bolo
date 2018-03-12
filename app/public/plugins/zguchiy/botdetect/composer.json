@@ -1,0 +1,14 @@
+{
+  "name": "zguchiy/botdetect-plugin",
+  "type": "october-plugin",
+  "description": "OctoberCMS plugin for Botdetect captcha",
+  "authors": [
+    {
+      "name": "Dmitriy Mikheev",
+      "email": "zguchiy@gmail.com"
+    }
+  ],
+  "require": {
+    "captcha-com/laravel-captcha":"4.*"
+  }
+}

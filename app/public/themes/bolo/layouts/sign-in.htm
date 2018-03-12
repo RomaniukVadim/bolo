@@ -1,0 +1,39 @@
+description = "Sign-in layout"
+
+[geoSettings]
+
+[localePicker]
+forceUrl = 1
+
+[staticPage]
+
+[boloSession]
+
+[boloAccount]
+paramCode = "code"
+==
+<?php
+function onStart(){
+    $user = Auth::getUser();
+    if($user)
+        return Redirect::to(\Cms\Classes\Theme::getActiveTheme()->after_login_redirect);
+
+}
+?>
+==
+{variable name="footerLinks" label="Footer Links" tab="Extra" type="text"}default-footer-links{/variable}
+
+{% put bodyClass %} sign-in{% endput %}
+{% partial 'site/header' %}
+<section id="sign-in" class="block form-block" style="background-image: url({{ 'assets/images/background_home_1.jpg'|theme }});">
+    <article class="container">
+        <div class="header">
+            {% page %}
+        </div>
+        {% component 'boloAccount' form='sign-in' %}
+        <div class="footer">
+            {% placeholder signinFooter title="Form Footer" type="html" %}
+        </div>
+    </article>
+</section>
+{% partial 'site/footer' %}

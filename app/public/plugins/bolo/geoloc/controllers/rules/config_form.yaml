@@ -1,0 +1,16 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+name: Geo Rule
+form: ~/plugins/bolo/geoloc/models/georule/fields.yaml
+modelClass: Bolo\GEoloc\Models\GeoRule
+defaultRedirect: bolo/geoloc/rules
+
+create:
+    redirect: bolo/geoloc/rules/update/:id
+    redirectClose: bolo/geoloc/rules
+
+update:
+    redirect: bolo/geoloc/rules
+    redirectClose: bolo/geoloc/rules

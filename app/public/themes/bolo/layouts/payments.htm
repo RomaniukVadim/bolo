@@ -1,0 +1,35 @@
+description = "Payments layout"
+
+[geoSettings]
+
+[boloSession]
+redirect = "sign-in"
+security="user"
+
+[localePicker]
+forceUrl = 1
+
+[staticPage]
+
+==
+<?php
+function onStart(){
+    $this->page->isPayment = 1;
+}
+?>
+==
+{variable name="footerLinks" label="Footer Links" tab="Extra" type="text"}default-footer-links{/variable}
+{% put bodyClass %} payments{% endput %}
+{% partial 'site/header' %}
+<section id="content">
+	<article class="container">
+	    <div class="header">
+	        {% page %}
+	    </div>
+	    {% partial 'site/payment-options' %}
+	    <div class="footer">
+	        {% placeholder paymentsFooter title="Payments Footer" type="html" %}
+	    </div>
+    </article>
+</section>
+{% partial 'site/footer' %}

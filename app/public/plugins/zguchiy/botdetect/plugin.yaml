@@ -1,0 +1,6 @@
+plugin:
+    name: 'zguchiy.botdetect::lang.plugin.name'
+    description: 'zguchiy.botdetect::lang.plugin.description'
+    author: zguchiy
+    icon: oc-icon-binoculars
+    homepage: ''

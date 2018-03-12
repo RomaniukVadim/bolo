@@ -1,0 +1,13 @@
+<div data-control="toolbar">
+    <?php if(\Bolo\Geoloc\Classes\GeoUser::getAdminTestPlace()):?>
+        <div class="callout fade in callout-info no-subheader">
+            <div class="header">
+                <i class="icon-info"></i>
+                <h3>
+                    Region testing mode.
+                    <button class="btn btn-sm btn-warning" data-request="onSetTest" data-request-data="id: '0'" data-stripe-load-indicator ><span class="icon-close"></span>Stop</button>
+                </h3>
+            </div>
+        </div>
+    <?php endif ?>
+</div>

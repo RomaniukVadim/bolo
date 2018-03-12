@@ -1,0 +1,31 @@
+<?php Block::put('breadcrumb') ?>
+<ul>
+    <li><a href="<?= Backend::url('bolo/geoloc/rules') ?>">Rules</a></li>
+    <li>Edit Rule</li>
+</ul>
+<?php Block::endPut() ?>
+
+<?= Form::open(['class'=>'layout']) ?>
+
+    <div class="layout-row">
+        <?= $this->formRender() ?>
+    </div>
+
+    <div class="form-buttons">
+        <div class="loading-indicator-container">
+            <button
+                type="button"
+                data-request="onSave"
+                data-request-data="close:true"
+                data-hotkey="ctrl+enter, cmd+enter"
+                data-load-indicator="Saving Rule..."
+                class="btn btn-default">
+                Save and Close
+            </button>
+            <span class="btn-text">
+                or <a href="<?= Backend::url('bolo/geoloc/rules') ?>">Cancel</a>
+            </span>
+        </div>
+    </div>
+
+<?= Form::close() ?>

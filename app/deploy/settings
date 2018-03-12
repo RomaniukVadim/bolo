@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+seckey="~/deploy.pem"
+remote_path="/opt/bolo/"

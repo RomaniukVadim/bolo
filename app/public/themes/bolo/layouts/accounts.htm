@@ -1,0 +1,24 @@
+description = "Accounts History"
+
+[geoSettings]
+
+[boloSession]
+security="user"
+
+[localePicker]
+forceUrl = 1
+
+[staticPage]
+==
+{variable name="footerLinks" label="Footer Links" tab="Extra" type="text"}default-footer-links{/variable}
+
+{% put bodyClass %} payments{% endput %}
+{% partial 'site/header' %}
+<section id="content">
+	<article class="container">
+	    <div class="header">
+	        {% page %}
+	    </div>
+    </article>
+</section>
+{% partial 'site/footer' %}

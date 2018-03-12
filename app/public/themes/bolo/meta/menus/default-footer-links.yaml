@@ -1,0 +1,107 @@
+name: 'Default Footer Links'
+items:
+    -
+        title: 'Responsible Gambling'
+        nesting: '0'
+        type: static-page
+        url: ''
+        code: ''
+        reference: responsible-gambling
+        cmsPage: ''
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            suffix: ''
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: 'Privacy Policy'
+                nesting: '0'
+                type: static-page
+                url: ''
+                code: ''
+                reference: faq
+                cmsPage: ''
+                replace: '0'
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'Terms and Conditions'
+                nesting: '0'
+                type: static-page
+                url: ''
+                code: ''
+                reference: terms-and-conditions
+                cmsPage: ''
+                replace: '0'
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: FAQs
+                nesting: '0'
+                type: static-page
+                url: ''
+                code: ''
+                reference: faqs
+                cmsPage: ''
+                replace: '0'
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+    -
+        title: 'Privacy Policy'
+        nesting: '0'
+        type: static-page
+        url: ''
+        code: ''
+        reference: faq
+        cmsPage: ''
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Terms and Conditions'
+        nesting: '0'
+        type: static-page
+        url: ''
+        code: ''
+        reference: terms-and-conditions
+        cmsPage: ''
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: FAQs
+        nesting: '0'
+        type: static-page
+        url: ''
+        code: ''
+        reference: faqs
+        cmsPage: ''
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Contact Us'
+        nesting: '0'
+        type: static-page
+        code: ''
+        reference: home
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            suffix: '#contact'
+            cssClass: ''
+            isExternal: '0'

@@ -1,0 +1,32 @@
+==
+<?php
+function onStart(){
+    $this['captcha_script'] = captcha_layout_stylesheet_url();
+}
+?>
+==
+<meta charset="utf-8">
+{% if this.page.meta_title %}
+    <title>{{ this.page.meta_title|_ }} - {{ 'site.name'|_ }}</title>
+    <meta name="title" content="{{ this.page.meta_title|_ }}">
+{% else %}
+    <title>{{ this.page.title }} - {{ 'site.name'|_ }}</title>
+{% endif %}
+{% if this.page.meta_description %}
+    <meta name="description" content="{{ this.page.meta_description|_ }}">
+{% endif %}
+<meta name="author" content="BoloBet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+<link rel="icon" type="image/png" href="{{ 'assets/siteimages/favicon.ico'|theme }}" />
+{% styles %}
+<link rel="stylesheet" href="{{ 'assets/css/font-awesome.min.css'|theme }}">
+<link href="{{ 'assets/lightgallery/css/lightgallery.min.css'|theme }}" rel="stylesheet">
+<link href="{{ [
+    'assets/css/application.css',
+]|theme }}" rel="stylesheet">
+<link href="{{ captcha_script }}" type="text/css" rel="stylesheet">
+{% if this.page.restricted != 1 %}
+    {% partial 'site/chat.htm' %}
+{% endif %}
+{{ this.theme.analythic_codes|raw }}
+

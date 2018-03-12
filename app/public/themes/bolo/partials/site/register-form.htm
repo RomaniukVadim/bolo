@@ -1,0 +1,92 @@
+==
+<?php
+function onEnd(){
+    $page = $this->page;
+
+    if($page['layout'] != 'register'){
+        $page = \RainLab\Pages\Classes\Page::loadCached(\Cms\Classes\Theme::getEditTheme(), 'register');
+    } else {
+        $page = $this->staticPage->page();
+    }
+
+    $flds = [
+        'title_opts',
+        'nationality_opts',
+        'country_opts',
+        'currency_opts',
+        'how_hear_opts',
+        'sec_question_opts',
+        'sec_question2_opts'
+    ];
+
+    foreach($flds as $fld){
+        $this[$fld] = \Bolo\Bolo\Behaviors\UserModel::getRegFormOpts($fld, $page);
+    }
+}
+?>
+==
+    {{ form_ajax('onRegister', {class: 'register-form', url: '/devnull.html', method: 'get', autocomplete: "off"}) }}
+        <div class="block-left">
+            <div class="form">
+                <div class="form-row">
+                    <label for="accountUsername">{{'reg.username'|_}}*</label>
+                    <input name="username" type="text" id="accountUsername" placeholder="{{'Enter your username'|_}}">
+                </div>
+                <div class="form-row">
+                    <label for="accountPassword">{{'reg.password'|_}}*</label>
+                    <input name="password" type="password" id="accountPassword" placeholder="{{'Enter password'|_}}">
+                </div>
+                <div class="form-row">
+                    <label for="accountPasswordConf">{{'reg.password_confirmation'|_}}*</label>
+                    <input name="password_confirmation" type="password" id="accountPasswordConf" placeholder="{{'Confirm password'|_}}">
+                </div>
+            </div>
+        </div>
+        <div class="block-right">
+            <div class="form">
+                <div class="form-row">
+                    <label for="accountHow">{{'reg.chat_username'|_}}*</label>
+                    <input name="chat_username" type="text" >
+                </div>
+                <div class="form-row inline">
+                    <label for="accountSkype">{{'reg.chat_type'|_}}*</label><br>
+                    <label for="accountSkype">
+                        <input name="chat_type" type="radio" id="accountSkype" value="skype" checked>
+                        {{'reg.skype'|_}}
+                    </label>
+                    <label for="accountWechat">
+                        <input name="chat_type" type="radio" id="accountWechat" value="wechat">
+                        {{'reg.wechat'|_}}
+                    </label>
+                    <label for="accountQQ">
+                        <input name="chat_type" type="radio" id="accountQQ" value="qq">
+                        {{'reg.qq'|_}}
+                    </label>
+                </div>
+                <div class="form-row">
+                    <label for="accountEmail">{{'reg.email'|_}}</label>
+                    <input name="email" type="email" id="accountEmail" placeholder="{{'Enter your email'|_}}">
+                </div>
+                <div class="form-row">
+                    <label for="accountHow">{{'reg.how_hear'|_}}*</label>
+                    <select name="how_hear" id="accountHow" >
+                        {% for val,item in how_hear_opts %}
+                        <option value="{{val}}">{{item}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="block-wide">
+            <div class="form">
+                <div class="form-row inline">
+                    <label for="accountTos">{{'reg.tos'|_}}*</label><br>
+                    <input name="tos" type="checkbox" id="accountTos" value="1">
+                    <a href="{{ 'terms-and-conditions'|staticPage }}" class="link" target="_blank">{{'Review Terms and Conditions'|_}}</a>
+                </div>
+                <div class="form-row">
+                    <button type="submit">{{'Register'|_}}</button>
+                </div>
+            </div>
+        </div>
+    {{ form_close() }}

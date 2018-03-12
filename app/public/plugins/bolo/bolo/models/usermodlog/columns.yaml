@@ -1,0 +1,42 @@
+# ===================================
+#  Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: id
+        invisible: true
+
+    created_at:
+        label: Created At
+        type: datetime
+        format: d/m/Y
+
+    action_id:
+        label: Action ID
+        invisible: true
+
+    user:
+        label: User
+        searchable: yes
+        relation: user
+        valueFrom: username
+
+    admin:
+        label: Admin
+        relation: admin
+        valueFrom: login
+
+    field:
+        label: Field
+
+    old_value:
+        label: Old Value
+        type: partial
+        path: ~/plugins/bolo/bolo/models/usermodlog/_value_column.htm
+
+    new_value:
+        label: New Value
+        type: partial
+        path: ~/plugins/bolo/bolo/models/usermodlog/_value_column.htm
+

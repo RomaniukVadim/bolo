@@ -1,0 +1,27 @@
+[viewBag]
+admin_email = "payments@bolo888.com"
+subject = "User payment confirmed"
+==
+<p>Hello!</p>
+
+<p>A deposit / payment has been made. Here are the details:&nbsp;</p>
+
+<p>User: &nbsp;{{ name }} {{ surname }}</p>
+
+<p>Email: &nbsp;{{ email }}</p>
+
+<p>Payment details:</p>
+
+<p>Order id: {{ order_id }}</p>
+
+<p>Gateway: {{ order_gateway_name }}</p>
+
+<p>Transaction ID: {{ order_gateway_transaction_id }}</p>
+
+<p>Amount: {{ order_amount }}</p>
+
+<p>Currency: {{ order_currency }}</p>
+
+<p>Message:&nbsp;</p><pre>{{ order_message }}<br><br><br></pre>
+
+<p>Have a nice day!&nbsp;</p><pre><br></pre>

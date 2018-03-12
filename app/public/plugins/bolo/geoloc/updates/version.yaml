@@ -1,0 +1,11 @@
+1.0.1:
+    - Initialize plugin.
+1.0.2:
+    - Create Geo Regions
+    - create_geo_regions.php
+1.0.3:
+    - Fill Geo Regions
+    - fill_geo_regions.php
+1.0.4:
+    - Create Geo Rules
+    - create_geo_rules.php

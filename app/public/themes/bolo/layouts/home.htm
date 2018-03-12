@@ -1,0 +1,210 @@
+description = "Home layout"
+
+[geoSettings]
+
+[localePicker]
+forceUrl = 1
+
+[staticPage]
+
+[boloContact]
+redirect="contact-thank-you"
+
+[boloAccount]
+redirect="/registration-done"
+[boloSession]
+==
+<?php
+    function onStart(){
+        $page = \RainLab\Pages\Classes\Page::loadCached(\Cms\Classes\Theme::getEditTheme(), 'partners');
+        if($page){
+            $childs = $page->getChildren();
+
+            $partners = [];
+
+            foreach($childs as $child){
+                if($child->is_hidden){
+                    continue;
+                }
+
+                $partners[] = $child;
+            }
+
+            $this['partners'] = $partners;
+        }
+
+        $page = \RainLab\Pages\Classes\Page::loadCached(\Cms\Classes\Theme::getEditTheme(), 'services');
+        if($page){
+            $childs = $page->getChildren();
+
+            $items = [];
+
+            foreach($childs as $child){
+                if($child->is_hidden){
+                    continue;
+                }
+
+                $items[] = $child;
+            }
+
+            $this['services'] = $items;
+        }
+
+    }
+?>
+==
+{variable name="footerLinks" label="Footer Links" tab="Extra" type="text"}default-footer-links{/variable}
+{variable name="aboutImg" label="About Image" tab="Side Images" type="mediafinder" mode="image"}{/variable}
+{variable name="slideEnable1" label="Slide 1 Enable" tab="Slides" type="checkbox"}{/variable}
+{variable name="slideContent1" label="Slide 1 Content" tab="Slides" type="richeditor"}{/variable}
+
+{variable name="slideEnable2" label="Slide 2 Enable" tab="Slides" type="checkbox"}{/variable}
+{variable name="slideContent2" label="Slide 2 Content" tab="Slides" type="richeditor"}{/variable}
+
+{variable name="slideEnable3" label="Slide 3 Enable" tab="Slides" type="checkbox"}{/variable}
+{variable name="slideContent3" label="Slide 3 Content" tab="Slides" type="richeditor"}{/variable}
+
+{variable name="slideEnable4" label="Slide 4 Enable" tab="Slides" type="checkbox"}{/variable}
+{variable name="slideContent4" label="Slide 4 Content" tab="Slides" type="richeditor"}{/variable}
+
+{variable name="slideEnable5" label="Slide 5 Enable" tab="Slides" type="checkbox"}{/variable}
+{variable name="slideContent5" label="Slide 5 Content" tab="Slides" type="richeditor"}{/variable}
+
+{variable name="slideEnable6" label="Slide 6 Enable" tab="Slides" type="checkbox"}{/variable}
+{variable name="slideContent6" label="Slide 6 Content" tab="Slides" type="richeditor"}{/variable}
+
+{variable name="slideEnable7" label="Slide 7 Enable" tab="Slides" type="checkbox"}{/variable}
+{variable name="slideContent7" label="Slide 7 Content" tab="Slides" type="richeditor"}{/variable}
+
+{variable name="slideEnable8" label="Slide 8 Enable" tab="Slides" type="checkbox"}{/variable}
+{variable name="slideContent8" label="Slide 8 Content" tab="Slides" type="richeditor"}{/variable}
+
+{variable name="slideEnable9" label="Slide 9 Enable" tab="Slides" type="checkbox"}{/variable}
+{variable name="slideContent9" label="Slide 9 Content" tab="Slides" type="richeditor"}{/variable}
+
+{variable name="slideEnable10" label="Slide 10 Enable" tab="Slides" type="checkbox"}{/variable}
+{variable name="slideContent10" label="Slide 10 Content" tab="Slides" type="richeditor"}{/variable}
+
+
+{% partial 'site/header' %}
+<section id="home" class="block" style="background-image: url({{ 'assets/images/background_home_1.jpg'|theme }});">
+    <a name="home"></a>
+    <div class="container">
+        <div class="slider">
+            {% for i in 1..10 %}
+                {% if attribute(_context, 'slideEnable'~i) %}
+                    <div class="slide slide{{i}}">
+                        <div class="slide-content">
+                            {{ attribute(_context, 'slideContent'~i)|raw }}
+                        </div>
+                     </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% if not user %}
+<section id="register" class="block form-block">
+    <article class="container">
+        {% if user %}
+        {% placeholder registeredUser title="Registered User" type="html" %}
+        {% else %}
+        <div class="header">
+            {% placeholder registerHeader title="Register Header" type="html" %}
+        </div>
+        {% partial 'site/register-form' %}
+        <div class="footer">
+            {% placeholder registerFooter title="Register Footer" type="html" %}
+        </div>
+        {% endif %}
+    </article>
+</section>
+{% endif %}
+<section id="about" class="block">
+    <a name="about"></a>
+    <article class="container">
+        {% if aboutImg %}
+            <img src="{{ aboutImg|media }}" class="preview">
+        {% endif %}
+        <div class="content">
+            {% placeholder homeAbout title="About Content" type="html" %}
+        </div>
+    </article>
+</section>
+<section id="services" class="block">
+    <a name="services"></a>
+    <article class="container pb0">
+        {% placeholder homeServices title="Services Header" type="html" %}
+    </article>
+    <div class="services-sections">
+        {% for item in services %}
+        <div class="services-section">
+            <article class="container">
+                {% if item.sideImg %}
+                    <img src="{{ item.sideImg|media }}" class="preview">
+                {% endif %}
+                <div class="content">
+                    {{ item.getProcessedMarkup|raw }}
+                </div>
+            </article>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+<section id="partners" class="block">
+    <a name="partners"></a>
+    <article class="container">
+        <div class="content">
+            <div class="intro">
+                {% placeholder homePartners title="Partners Header" type="html" %}
+            </div>
+            <div class="grid">
+                {% for item in partners %}
+                    <div class="box">
+                        <a class="flow" href="{{ item.fileName|staticPage }}">
+                            <div class="logo">
+                                {% if activeLocale == 'en' %}
+                                    {% if item.previevImg %}
+                                        <img src="{{ item.previevImg|media }}">
+                                    {% endif %}
+                                {% elseif activeLocale == 'zh-cn' %}
+                                    {% if item.previevImgZHCN %}
+                                        <img src="{{ item.previevImgZHCN|media }}">
+                                    {% elseif item.previevImg %}
+                                        <img src="{{ item.previevImg|media }}">
+                                    {% endif %}
+                                {% else %}
+                                    {% if item.previevImgZHTW %}
+                                        <img src="{{ item.previevImgZHTW|media }}">
+                                    {% elseif item.previevImg %}
+                                        <img src="{{ item.previevImg|media }}">
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                            <div class="name">{{ item.previevName }}</div>
+                            <div class="content">
+                                {{ item.previevText }}
+                            </div>
+                            <button class="btn btn-action">{{ 'Details'|_ }}</button>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </article>
+</section>
+<section id="contact" class="block form-block">
+    <article class="container">
+        <div class="header">
+            {% placeholder contactHeader title="Contact Header" type="html" %}
+        </div>
+        <div class="form left">
+            {% partial 'site/contact-form' %}
+        </div>
+        <div class="footer">
+            {% placeholder contactFooter title="Contact Footer" type="html" %}
+        </div>
+    </article>
+</section>
+
+{% partial 'site/footer' %}

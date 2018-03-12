@@ -1,0 +1,62 @@
+{{ this.theme.zopim_chat_code|raw }}
+
+{% if this.theme.zopim_chat_code %}
+    <script>
+        $zopim.is_mobile = window.innerWidth < 700;
+        $zopim(function(){
+            $zopim.livechat.setLanguage('{{ activeLocale }}')
+
+            var labels = {
+                offline_message: {
+                    normal: "{{ 'zopim.offline_message'|_ }}",
+                    setup: function(val) { $zopim.livechat.offlineForm.setGreetings(val); }
+                },
+                prechat_message: {
+                    normal: "{{ 'zopim.prechat_message'|_ }}",
+                    setup: function(val) {
+                        $zopim.livechat.offlineForm.setGreetings(val);
+                        $zopim.livechat.prechatForm.setGreetings(val);
+                    }
+                },
+                badge_text: {
+                    normal: "{{ 'zopim.badge_text'|_ }}",
+                    setup: function(val) { $zopim.livechat.badge.setText(val); }
+                },
+                widget_title: {
+                    normal: "{{ 'zopim.widget_title'|_ }}",
+                    mobile: "{{ 'zopim.widget_title_mobile'|_ }}",
+                    setup: function(val) { $zopim.livechat.window.setTitle(val); }
+                },
+                closed_widget_title_online_slash_offline: {
+                    normal: "{{ 'zopim.closed_widget_title_online_slash_offline'|_ }}",
+                    mobile: "{{ 'zopim.closed_widget_title_online_slash_offline_mobile'|_ }}",
+                    setup: function(val) {
+                        val = val.split('/');
+                        $zopim.livechat.setGreetings({online: val[0], offline: val[1]});
+                    }
+                },
+
+                concierge_name: {
+                    normal: "{{ 'zopim.concierge_name'|_ }}",
+                    setup: function(val) { $zopim.livechat.concierge.setName(val); }
+                },
+                concierge_title: {
+                    normal: "{{ 'zopim.concierge_title'|_ }}",
+                    setup: function(val) { $zopim.livechat.concierge.setTitle(val); }
+                }
+            };
+
+            for(var label in labels){
+                var item = labels[label];
+                if(!item.setup)
+                    continue;
+
+                if($zopim.is_mobile && item.mobile && item.mobile.indexOf('zopim.') == -1){
+                    item.setup(item.mobile);
+                } else {
+                    item.setup(item.normal);
+                }
+            }
+        });
+    </script>
+{% endif %}

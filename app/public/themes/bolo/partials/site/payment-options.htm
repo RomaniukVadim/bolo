@@ -1,0 +1,89 @@
+==
+<?php
+    function onStart(){
+        $page = $this->page;
+
+        $auth = !!Auth::getUser();
+
+        if($page['layout'] != 'payments'){
+            $page = \RainLab\Pages\Classes\Page::loadCached(\Cms\Classes\Theme::getEditTheme(), 'payments');
+        } else {
+            $page = $this->staticPage->page();
+        }
+
+
+        if($page){
+            $childs = $page->getChildren();
+
+            $table = [];
+
+            foreach($childs as $child){
+                if($child->is_hidden){
+                    continue;
+                }
+                if(!$child->tblLogo){
+                    continue;
+                }
+
+                $row = [
+                    'logo' => $child->tblLogo,
+                    'link' => $auth? $child->fileName: 'sign-in',
+                    'description' => \Bolo\Bolo\Classes\Text2Img::convert($child->tblDescription, ['w' => 320, 'h' => 100])
+                ];
+
+                foreach(['Type', 'Fee', 'Time', 'Min', 'Max', 'Currency'] as $fn){
+                    $row[strtolower($fn)] = \Bolo\Bolo\Classes\Text2Img::convert($child->{'tbl'.$fn});
+                }
+
+                $table[] = $row;
+            }
+
+            $this['payTable'] = $table;
+        }
+    }
+?>
+==
+
+<div class="payments-options">
+    {% if payTable %}
+        <div class="head">
+            <div class="col col1">{{'Payment Method'|_}}</div>
+            <div class="col col2">{{'Type'|_}}</div>
+            <div class="col col3">{{'Fee'|_}}</div>
+            <div class="col col4">{{'Process Time'|_}}</div>
+            <div class="col col5">{{'Min'|_}}</div>
+            <div class="col col6">{{'Max'|_}}</div>
+            <div class="col col7">{{'Currency'|_}}</div>
+            <div class="col col8"></div>
+            <div class="col col9"></div>
+        </div>
+        <div class="body">
+            {% for r in payTable %}
+            <div class="row desktop">
+                <div class="col col1"><i></i><img src="{{ r.logo|media }}" alt=""></div>
+                <div class="col col2"><i></i><img src="{{ r.type }}" alt=""></div>
+                <div class="col col3"><i></i><img src="{{ r.fee }}" alt=""></div>
+                <div class="col col4"><i></i><img src="{{ r.time }}" alt=""></div>
+                <div class="col col5"><i></i><img src="{{ r.min }}" alt=""></div>
+                <div class="col col6"><i></i><img src="{{ r.max }}" alt=""></div>
+                <div class="col col7"><i></i><img src="{{ r.currency }}" alt=""></div>
+                <div class="col col8"><a class="payment-info">{{'DETAILS'|_}} <i class="fa fa-caret-down" aria-hidden="true"></i></a></div>
+                <div class="col col9"><a data-href="{{ r.link|staticPage }}" class="payment-details" href="{{ r.link|staticPage }}">{{'Deposit'|_}}</a></div>
+                <div class="col col-row"><i></i><img src="{{ r.description }}" alt=""></div>
+            </div>
+            <div class="row mobile">
+                <div class="col col1"><i></i><img src="{{ r.logo|media }}" alt=""></div>
+                <div class="col col2"><span class="mobile title">{{'Type'|_}}</span><img src="{{ r.type }}" alt=""></div>
+                <div class="col col3"><span class="mobile title">{{'Fee'|_}}</span><img src="{{ r.fee }}" alt=""></div>
+                <div class="col col4"><span class="mobile title">{{'Process Time'|_}}</span><img src="{{ r.time }}" alt=""></div>
+                <div class="col col5"><span class="mobile title">{{'Min'|_}}</span><img src="{{ r.min }}" alt=""></div>
+                <div class="col col6"><span class="mobile title">{{'Max'|_}}</span><img src="{{ r.max }}" alt=""></div>
+                <div class="col col7"><span class="mobile title">{{'Currency'|_}}</span><img src="{{ r.currency }}" alt=""></div>
+                <div class="col col8"><a class="payment-info">{{'DETAILS'|_}} <i class="fa fa-caret-down" aria-hidden="true"></i></a></div>
+                <div class="col col-row"><i></i><img src="{{ r.description }}" alt=""></div>
+                <div class="col col9"><a data-href="{{ r.link|staticPage }}" class="payment-details" href="{{ r.link|staticPage }}">{{'Deposit'|_}}</a></div>
+            </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>

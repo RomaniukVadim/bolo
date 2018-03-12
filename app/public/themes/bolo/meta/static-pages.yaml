@@ -1,0 +1,43 @@
+static-pages:
+    404: {  }
+    home: {  }
+    partners:
+        partners-Zedeespreads: {  }
+        partners-sharpstar: {  }
+        partners-sharpstar2: {  }
+        partners-sbobet: {  }
+        oe: {  }
+        partners-maxbet: {  }
+        pinnacle-sports: {  }
+        partners-betisn: {  }
+        partners-singbet: {  }
+        partners-1bet: {  }
+        18bet: {  }
+        partners-matchbook: {  }
+    payments:
+        payments-withdrawals: {  }
+        payments-info: {  }
+        payments-18bet: {  }
+        payments-payment-methods-3: {  }
+        payments-rpnpay: {  }
+        payments-ok: {  }
+    contact:
+        contact-thank-you: {  }
+    sign-in: {  }
+    profile: {  }
+    terms-and-conditions: {  }
+    faqs: {  }
+    faq: {  }
+    error: {  }
+    register:
+        registration-done: {  }
+    restricted: {  }
+    responsible-gambling: {  }
+    services:
+        services-betting-accounts: {  }
+        services-agency: {  }
+    forgot-password: {  }
+    promotions: {  }
+    affiliate01: {  }
+    zd_reg: {  }
+    ob_reg: {  }

@@ -1,0 +1,9 @@
+export:
+    title: Export transactions
+    modelClass: Bolo\Bolo\Models\ExportOrders
+    list: $/bolo/bolo/models/order/columns.yaml
+    redirect: bolo/bolo/orders
+    useList:
+        definition: orders
+        raw: true
+    fileName: orders.csv

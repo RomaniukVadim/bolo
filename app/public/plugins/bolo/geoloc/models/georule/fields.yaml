@@ -1,0 +1,43 @@
+fields:
+    name:
+        label: Rule Name
+        span: left
+
+    priority:
+        label: Priority
+        span: left
+        type: number
+        default: 100
+
+    blocked:
+        label: Whole Site Block
+        type: switch
+        span: left
+        comment: You have to have page with url /restricted to handle blocked visitors
+
+    _loc:
+        label: Location
+        type: section
+
+    _region_in:
+        label: Include Regions
+        tab: Settings
+        span: auto
+        type: checkboxlist
+
+    _region_ex:
+        label: Exclude Regions
+        tab: Settings
+        span: auto
+        type: checkboxlist
+
+    general[lang]:
+        label: Language
+        tab: General
+        span: auto
+        type: dropdown
+        options:
+            en: English
+            zh-cn: Simplified Chinese
+            zh-tw: Traditional Chinese
+

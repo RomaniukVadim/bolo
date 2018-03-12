@@ -1,0 +1,50 @@
+# ===================================
+#  Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: id
+        searchable: yes
+
+    user:
+        label: User
+        searchable: yes
+        relation: user
+        valueFrom: username
+
+    amount:
+        label: amount
+        type: number
+
+    currency:
+        label: Cur
+
+    status:
+        label: Status
+
+    gateway_name:
+        label: Gateway
+
+    gateway_transaction_id:
+        label: Gateway ID
+        searchable: yes
+
+    message:
+        label: User Message
+
+    created_at:
+        label: Created At
+        type: datetime
+        format: d/m/Y H:i:s
+
+    updated_at:
+        label: Updated At
+        type: datetime
+        format: d/m/Y H:i:s
+    type:
+        label: Transaction Type
+    bookmaker:
+        label: Bookmaker
+        relation: bookmaker
+        select: name

@@ -1,0 +1,20 @@
+[viewBag]
+subject = "用戶付款確認"
+==
+<p>用戶名; {{ name }} {{ surname }}</p>
+
+<p>電郵: {{ email }}</p>
+
+<p>支付詳情:</p>
+
+<p>申請編碼: {{ order_id }}</p>
+
+<p>網關: {{ order_gateway_name }}</p>
+
+<p>交易編碼: {{ order_gateway_transaction_id }}</p>
+
+<p>金額: {{ order_amount }}</p>
+
+<p>貨幣: {{ order_currency }}</p>
+
+<p>信息:</p><pre>{{ order_message }}</pre>

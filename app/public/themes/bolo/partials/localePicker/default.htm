@@ -1,0 +1,3 @@
+{% for code, name in locales %}
+    <a href="#" class="lang-opt {{ code == activeLocale ? 'selected' }} lang-{{ code }}" data-request="onSwitchLocale" data-request-data="locale: '{{ code }}'"><span class="icon-flag {{ code }}"></span></a>
+{% endfor %}

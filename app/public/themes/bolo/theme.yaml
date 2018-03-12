@@ -1,0 +1,76 @@
+name: 'Bolo Theme'
+description: 'Custom theme'
+author: TotelWebCo
+homepage: 'http://totelweb.co'
+code: bolo-theme
+form: theme_fields.yaml
+require:
+    - RainLab.Pages
+    - RainLab.Translate
+translate:
+    en:
+        site.name: 'Bolo Bet'
+        reg.no_chat_specified: 'You must specify at least one messenger address'
+        reg.too_young_dob: 'You must be 18 years or older'
+        reg.tos_not_accepted: 'The Terms of Service must be accepted'
+        reg.invalid_dob: 'Invalid Date of Birth'
+        reg.name: 'First Name'
+        reg.username: 'Username'
+        reg.surname: 'Last Name'
+        reg.code: 'Password Reset Code'
+        reg.title: Title
+        reg.nationality: Nationality
+        reg.dob: 'Date of Birth'
+        reg.addr: 'House No. / Street'
+        reg.city: 'Town / City'
+        reg.zip: 'Post Code'
+        reg.country: Country
+        reg.phone: 'Telephone Number'
+        reg.mobile: 'Mobile Number'
+        reg.email: 'Primary Email'
+        reg.email2: 'Alternative Email'
+        reg.chat_username: 'Chat Username'
+        reg.chat_type: 'Chat Type'
+        reg.skype: 'Skype'
+        reg.wechat: 'Wechat'
+        reg.qq: 'QQ'
+        reg.currency: Currency
+        reg.how_hear: 'How Do You Hear About Us?'
+        reg.tos: 'Do You Accept Our Terms And Conditions?'
+        reg.promo: 'Do You Have Promo Code'
+        reg.sec_question: 'Security Question'
+        reg.sec_answer: 'Security Answer'
+        reg.sec_question2: 'Security Question 2'
+        reg.sec_answer2: 'Security Answer 2'
+        reg.password: Password
+        reg.password_confirmation: 'Confirm Password'
+        reg.new_password: 'New Password'
+        reg.new_password_confirmation: 'Confirm New Password'
+        reset.invalid_user: 'User not found'
+        reset.invalid_activation_code: 'Invalid Password Reset Code'
+        login.invalid: 'Invalid Username or Password'
+        login.capt_invalid: 'Invalid captcha code'
+        login.require_activation: 'Please contact our Customer Service Team to activate your account.'
+        profile.invalid_password: 'Invalid Password'
+        cont.name: Name
+        cont.email: Email
+        cont.message: Message
+        bolo.admin: 'Bolo Admin'
+        deposit: 'Deposit'
+        good_will: 'GOOD WILL'
+        withdrawal: 'WITHDRAWAL'
+        transfer: 'TRANSFER'
+        manual_adjustment: 'MANUAL ADJUSTMENT'
+        bonus: 'BONUS'
+        created: 'created'
+        pending: 'pending'
+        canceled: 'canceled'
+        confirmed: 'confirmed'
+        processed: 'processed'
+        refunded: 'refunded'
+        RPNPay: 'RPNPay'
+        RPNPayUnionPayMobile: 'RPNPayUnionPayMobile'
+        RPNPayWechat: 'RPNPayWechat'
+        RPNPayUnionPayDesktop: 'RPNPayUnionPayDesktop'
+
+

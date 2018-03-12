@@ -1,0 +1,32 @@
+description = "Contact layout"
+
+[geoSettings]
+
+[localePicker]
+forceUrl = 1
+
+[staticPage]
+
+[boloSession]
+
+[boloContact]
+redirect="contact-thank-you"
+==
+{variable name="footerLinks" label="Footer Links" tab="Extra" type="text"}default-footer-links{/variable}
+
+{% put bodyClass %} contact{% endput %}
+{% partial 'site/header' %}
+<section id="content" class="block form-block" style="background-image: url({{ 'assets/images/background_home_1.jpg'|theme }});">
+    <article class="container">
+        <div class="header">
+            <h1>{% page %}</h1>
+        </div>
+        <div class="form left">
+            {% partial 'site/contact-form' %}
+        </div>
+        <div class="footer">
+            {% placeholder contactFooter title="Contact Footer" type="html" %}
+        </div>
+    </article>
+</section>
+{% partial 'site/footer' %}

@@ -1,0 +1,6 @@
+plugin:
+    name: 'bolo.geoloc::lang.plugin.name'
+    description: 'bolo.geoloc::lang.plugin.description'
+    author: bolo
+    icon: oc-icon-binoculars
+    homepage: ''

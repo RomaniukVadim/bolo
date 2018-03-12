@@ -1,0 +1,16 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+name: Bookmaker
+form: $/bolo/bolo/models/bookmaker/fields.yaml
+modelClass: Bolo\Bolo\Models\Bookmaker
+
+create:
+    title: New Bookmaker
+    redirectClose: bolo/bolo/bookmaker
+update:
+    title: Edit Bookmaker
+    redirectClose: bolo/bolo/bookmaker
+    flashSave: Bookmaker updated successfully!
+    flashDelete: Bookmaker has been deleted.
